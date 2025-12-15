@@ -3,6 +3,7 @@ import logo from '../assets/images/logo-white.svg'
 import flag from '../assets/images/flag.png'
 import { MdMenu as IonsMdMenu } from 'react-icons/md'
 import { GoSearch } from "react-icons/go";
+import { AiFillInfoCircle } from "react-icons/ai";
 
 const Navbar = () => {
     return (
@@ -26,9 +27,11 @@ const Navbar = () => {
 
 
 
+                <div className='flex items-center gap-2 text-[#2c9cdb] hover:text-[#4ab1ec] cursor-pointer'>
+                    <AiFillInfoCircle className='' />
+                    <a href="" className='text-lg font-semibold'>How it works</a>
+                </div>
 
-
-                <a href="">How it works</a>
 
                 <div className='flex items-center gap-4'>
                     <button className="text-[#2c9cdb] hover:text-[#35acf1] 
