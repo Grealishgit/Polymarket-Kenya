@@ -6,6 +6,26 @@ import { GoSearch } from "react-icons/go";
 import { AiFillInfoCircle } from "react-icons/ai";
 
 const Navbar = () => {
+
+    const navLinks = [
+        { name: 'Trending', href: '#', icon: '' },
+        { name: 'Breaking', href: '#', icon: '' },
+        { name: 'New', href: '#', icon: '' },
+        { name: 'Politics', href: '#', icon: '' },
+        { name: 'Sports', href: '#', icon: '' },
+        { name: 'Finance', href: '#', icon: '' },
+        { name: 'Crypto', href: '#', icon: '' },
+        { name: 'Geopolitics', href: '#', icon: '' },
+        { name: 'Earnings', href: '#', icon: '' },
+        { name: 'Tech', href: '#', icon: '' },
+        { name: 'Culture', href: '#', icon: '' },
+        { name: 'World', href: '#', icon: '' },
+        { name: 'Economy', href: '#', icon: '' },
+        { name: 'Elections', href: '#', icon: '' },
+        { name: 'Mentions', href: '#', icon: '' },
+        { name: 'More', href: '#', icon: '' },
+    ]
+
     return (
         <div className="w-full p-2 flex">
             <nav className="w-full flex items-center h-16 justify-between p-4 text-white">
@@ -46,6 +66,10 @@ const Navbar = () => {
 
 
             </nav>
+
+            <div className='flex items-center gap-2 overflow-x-auto'>
+
+            </div>
         </div>
     )
 }
