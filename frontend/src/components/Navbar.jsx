@@ -2,20 +2,31 @@ import React from 'react'
 import logo from '../assets/images/logo-white.svg'
 import flag from '../assets/images/flag.png'
 import { MdMenu as IonsMdMenu } from 'react-icons/md'
+import { GoSearch } from "react-icons/go";
 
 const Navbar = () => {
     return (
-        <div className="w-full flex">
+        <div className="w-full p-2 flex">
             <nav className="w-full flex items-center h-16 justify-between p-4 text-white">
                 <div className='flex items-center gap-4'>
                     <img src={logo} alt="" className='w-auto h-8' />
                     <img src={flag} alt="" className='w-auto h-7 -rotate-4' />
                 </div>
 
+                <div className='flex relative items-center gap-2 bg-[#2f3f50] px-2 w-150 py-1 rounded-lg'>
+                    <GoSearch className='text-gray-400 ml-2 text-xl'
+                    />
                 <input type="text"
-                    placeholder="Search polymarket /"
-                    className="bg-[#2f3f50] placeholder:text-gray-400 text-white rounded-lg px-4 py-3 w-1/3 focus:outline-none"
-                />
+                        placeholder="Search polymarket "
+                        className="bg-[#2f3f50]  placeholder:text-gray-400 text-white rounded-lg px-4 py-2 focus:outline-none"
+                    /> 
+                    <span className='absolute right-5 text-xl text-gray-400'>/</span>
+                </div>
+
+
+
+
+
 
                 <a href="">How it works</a>
 
