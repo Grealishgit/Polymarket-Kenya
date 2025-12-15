@@ -67,7 +67,7 @@ const Navbar = () => {
 
             </nav>
 
-            <div className='flex items-center gap-2 mt-4 overflow-x-auto'>
+            <div className='flex items-center no-scrollview gap-2 mt-4 overflow-x-auto'>
                 {navLinks.map((link, index) => (
                     <a
                         key={index}

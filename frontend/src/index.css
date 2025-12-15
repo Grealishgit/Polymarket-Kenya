@@ -1,4 +1,14 @@
 @import "tailwindcss";
+.no-scrollview::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollview {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
 :root,
 .t-yRYDe {
   --colors-gray1: #333333;
