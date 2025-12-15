@@ -27,14 +27,14 @@ const Navbar = () => {
     ]
 
     return (
-        <div className="w-full p-2 flex">
+        <div className="w-full flex border-b border-gray-700 fixed top-0 z-10 dark:bg-[#1d2b3a] bg-white flex-col p-2">
             <nav className="w-full flex items-center h-16 justify-between p-4 text-white">
                 <div className='flex items-center gap-4'>
                     <img src={logo} alt="" className='w-auto h-8' />
                     <img src={flag} alt="" className='w-auto h-7 -rotate-4' />
                 </div>
 
-                <div className='flex relative items-center gap-2 dark:bg-[#2f3f50] bg-white px-2 w-150 py-1 rounded-lg'>
+                <div className='flex relative dark:bg-[#2f3f50]  bg-white items-center gap-2  px-2 w-150 py-1 rounded-lg'>
                     <GoSearch className='text-gray-400 ml-2 text-xl'
                     />
                 <input type="text"
@@ -67,7 +67,16 @@ const Navbar = () => {
 
             </nav>
 
-            <div className='flex items-center gap-2 overflow-x-auto'>
+            <div className='flex items-center gap-2 mt-4 overflow-x-auto'>
+                {navLinks.map((link, index) => (
+                    <a
+                        key={index}
+                        href={link.href}
+                        className='text-gray-400 px-3 py-2 whitespace-nowrap hover:text-white cursor-pointer text-lg font-medium'
+                    >
+                        {link.name}
+                    </a>
+                ))}
 
             </div>
         </div>
