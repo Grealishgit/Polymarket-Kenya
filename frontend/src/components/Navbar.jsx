@@ -14,7 +14,7 @@ const Navbar = () => {
                     <img src={flag} alt="" className='w-auto h-7 -rotate-4' />
                 </div>
 
-                <div className='flex relative items-center gap-2 bg-[#2f3f50] px-2 w-150 py-1 rounded-lg'>
+                <div className='flex relative items-center gap-2 dark:bg-[#2f3f50] bg-white px-2 w-150 py-1 rounded-lg'>
                     <GoSearch className='text-gray-400 ml-2 text-xl'
                     />
                 <input type="text"
