@@ -5,6 +5,10 @@ import { MdMenu as IonsMdMenu } from 'react-icons/md'
 import { GoSearch } from "react-icons/go";
 import { AiFillInfoCircle } from "react-icons/ai";
 import { HiMiniArrowTrendingUp } from "react-icons/hi2";
+import { FaTrophy } from "react-icons/fa";
+import { BiSolidDollarCircle } from "react-icons/bi";
+import { TbPlugConnected } from "react-icons/tb";
+import { IoMdMoon } from "react-icons/io";
 
 const Navbar = () => {
 
@@ -115,40 +119,51 @@ const Navbar = () => {
 
             {!modalOpen && (
                 <div className='flex flex-col bg-[#1d2b3a] z-50 justify-start items-start max-w-70 w-full
-                 rounded-md border border-gray-500 p-4 fixed top-16 right-5'>
-                    <button className='text-gray-100 w-full py-2.5 px-5 text-left 
-                    font-medium nav-bold hover:bg-gray-600 rounded-lg cursor-pointer mb-2'>
-                        Leaderboard
+                 rounded-xl border border-gray-600 fixed top-16 right-5'>
+                    <div className='flex flex-col w-full p-2'>
+                        <button className='text-gray-100 flex gap-2 items-center w-full py-2.5 px-5 text-left 
+                    font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
+                            <FaTrophy className='text-yellow-500 text-lg' color='gold' /> Leaderboard
                     </button>
-                    <button className='text-gray-100 w-full py-2.5 px-5 text-left 
-                    font-medium nav-bold hover:bg-gray-600 rounded-lg cursor-pointer mb-2'>
-                        Rewards
+                        <button className='text-gray-100 flex gap-2 items-center w-full py-2.5 px-5 text-left 
+                    font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
+                            <BiSolidDollarCircle className='text-green-600 text-lg' color='green' />  Rewards
                     </button>
-                    <button className='text-gray-100 w-full py-2.5 px-5 text-left
-                     font-medium nav-bold hover:bg-gray-600 rounded-lg cursor-pointer mb-2'>
-                        API
+                        <button className='text-gray-100 flex gap-2 items-center w-full py-2.5 px-5 text-left
+                     font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
+                            <TbPlugConnected className='text-red-500 text-lg' color='red' />   API
                     </button>
                     <div className='flex items-center justify-between w-full py-2.5 px-5
-                     font-medium nav-bold hover:bg-gray-600 rounded-lg cursor-pointer mb-2'>
-                        <button className='text-gray-100 text-left w-full'>
-                            Dark mode
+                     font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
+                            <button className='text-gray-100 flex gap-2 items-center text-left w-full'>
+                                <IoMdMoon className='text-lg' color='sky' />   Dark mode
                         </button>
                         {/* Toggle */}
                         <div className='w-13 h-6 bg-[#2c9cdb] rounded-full flex items-center p-1 cursor-pointer'>
                             <div className='w-4 h-4 bg-white rounded-full'></div>
-                        </div>
+                            </div>
+                        </div> 
                     </div>
 
-                    <hr className='border-t border-gray-500' />
-                    <button>
+
+                    <hr className='border-t border-gray-500 w-full' />
+
+                    <div className='flex flex-col w-full p-2'>
+
+                        <button className='text-gray-300 w-full py-2.5 px-5 text-left
+                     font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer'>
                         Accuracy
                     </button>
-                    <button>
+                        <button className='text-gray-300 w-full py-2.5 px-5 text-left
+                     font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer'>
                         Documentation
                     </button>
-                    <button>
+                        <button className='text-gray-300 w-full py-2.5 px-5 text-left
+                     font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer'>
                         Terms Of Use
                     </button>
+
+                    </div>
                 </div>
             )}
 
