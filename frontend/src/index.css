@@ -1,4 +1,28 @@
 @import "tailwindcss";
+@font-face {
+  font-family: 'system-ui';
+  src: url('../src/assets/fonts/OpenSauceOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'system-ui-bold';
+  src: url('../src/assets/fonts/OpenSauceOne-Medium.ttf') format('truetype');
+}
+
+.nav-bold {
+  font-family: 'system-ui-bold';
+}
+
+
+* {
+  font-family: ui-sans-serif,
+    'system-ui',
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+}
 .no-scrollview::-webkit-scrollbar {
   display: none;
 }

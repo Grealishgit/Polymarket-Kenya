@@ -76,15 +76,18 @@ const Navbar = () => {
 
             <div className='flex w-full gap-2 items-center justify-center'>
 
-                <div className='flex items-center no-scrollview gap-2 mt-4 overflow-x-auto'>
+                <div className='flex items-center no-scrollview gap-1 mt-4'>
                     {mainLinks.map((link, index) => (
                         <a
                             key={index}
                             href={link.href}
-                            className={` gap-2 flex items-center px-2 py-2 whitespace-nowrap hover:text-white cursor-pointer text-lg font-medium ${activeTab === link.name ? 'text-white' : 'text-gray-400'}`}
+                            className={` gap-2 flex items-center px-1 py-2 whitespace-nowrap nav-bold
+                                 hover:text-white cursor-pointer  font-medium
+                                 ${activeTab === link.name ? 'text-white' : 'text-gray-400'}`}
                             onClick={() => setActiveTab(link.name)}
                         >
-                            {link.icon && <link.icon className={` text-xl ${activeTab === link.name ? 'text-white' : 'text-gray-400'}`} />}
+                            {link.icon && <link.icon
+                                className={` text-xl ${activeTab === link.name ? 'text-white' : 'text-gray-400'}`} />}
 
                             {link.name}
                         </a>
@@ -92,12 +95,15 @@ const Navbar = () => {
 
                 </div> 
 
+                <hr className='border-r border-gray-500 h-5 ml-2 mt-4' />
+
                 <div className='flex items-center no-scrollview gap-2 mt-4 overflow-x-auto'>
                     {navLinks.map((link, index) => (
                         <a
                             key={index}
                             href={link.href}
-                            className='text-gray-400 px-3 py-2 whitespace-nowrap hover:text-white cursor-pointer text-lg font-medium'
+                            className='text-gray-400 px-3 py-2 whitespace-nowrap hover:text-white cursor-pointer
+                             nav-bold font-medium'
                         >
                             {link.name}
                         </a>
