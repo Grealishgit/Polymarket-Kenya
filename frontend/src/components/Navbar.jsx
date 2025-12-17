@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../assets/images/logo-white.svg'
 import flag from '../assets/images/flag.png'
 import { MdMenu as IonsMdMenu } from 'react-icons/md'
 import { GoSearch } from "react-icons/go";
 import { AiFillInfoCircle } from "react-icons/ai";
+import { HiMiniArrowTrendingUp } from "react-icons/hi2";
 
 const Navbar = () => {
 
+    const [activeTab, setActiveTab] = useState('Trending');
+
     const mainLinks = [
-        { name: 'Trending', href: '#' },
-        { name: 'Breaking', href: '#' },
-        { name: 'New', href: '#' },
+        { name: 'Trending', href: '#', icon: HiMiniArrowTrendingUp },
+        { name: 'Breaking', href: '#', icon: '' },
+        { name: 'New', href: '#', icon: '' },
     ]
 
     const navLinks = [
@@ -71,19 +74,24 @@ const Navbar = () => {
 
             </nav>
 
-            <div className='flex w-full items-center justify-center'>
+            <div className='flex w-full gap-2 items-center justify-center'>
+
                 <div className='flex items-center no-scrollview gap-2 mt-4 overflow-x-auto'>
                     {mainLinks.map((link, index) => (
                         <a
                             key={index}
                             href={link.href}
-                            className='text-gray-400 px-3 py-2 whitespace-nowrap hover:text-white cursor-pointer text-lg font-medium'
+                            className={` gap-2 flex items-center px-2 py-2 whitespace-nowrap hover:text-white cursor-pointer text-lg font-medium ${activeTab === link.name ? 'text-white' : 'text-gray-400'}`}
+                            onClick={() => setActiveTab(link.name)}
                         >
+                            {link.icon && <link.icon className={` text-xl ${activeTab === link.name ? 'text-white' : 'text-gray-400'}`} />}
+
                             {link.name}
                         </a>
                     ))}
 
                 </div> 
+
                 <div className='flex items-center no-scrollview gap-2 mt-4 overflow-x-auto'>
                     {navLinks.map((link, index) => (
                         <a
