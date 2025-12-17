@@ -7,23 +7,27 @@ import { AiFillInfoCircle } from "react-icons/ai";
 
 const Navbar = () => {
 
+    const mainLinks = [
+        { name: 'Trending', href: '#' },
+        { name: 'Breaking', href: '#' },
+        { name: 'New', href: '#' },
+    ]
+
     const navLinks = [
-        { name: 'Trending', href: '#', icon: '' },
-        { name: 'Breaking', href: '#', icon: '' },
-        { name: 'New', href: '#', icon: '' },
-        { name: 'Politics', href: '#', icon: '' },
-        { name: 'Sports', href: '#', icon: '' },
-        { name: 'Finance', href: '#', icon: '' },
-        { name: 'Crypto', href: '#', icon: '' },
-        { name: 'Geopolitics', href: '#', icon: '' },
-        { name: 'Earnings', href: '#', icon: '' },
-        { name: 'Tech', href: '#', icon: '' },
-        { name: 'Culture', href: '#', icon: '' },
-        { name: 'World', href: '#', icon: '' },
-        { name: 'Economy', href: '#', icon: '' },
-        { name: 'Elections', href: '#', icon: '' },
-        { name: 'Mentions', href: '#', icon: '' },
-        { name: 'More', href: '#', icon: '' },
+
+        { name: 'Politics', href: '#' },
+        { name: 'Sports', href: '#' },
+        { name: 'Finance', href: '#' },
+        { name: 'Crypto', href: '#' },
+        { name: 'Geopolitics', href: '#' },
+        { name: 'Earnings', href: '#' },
+        { name: 'Tech', href: '#' },
+        { name: 'Culture', href: '#' },
+        { name: 'World', href: '#' },
+        { name: 'Economy', href: '#', },
+        { name: 'Elections', href: '#' },
+        { name: 'Mentions', href: '#' },
+        { name: 'More', href: '#' },
     ]
 
     return (
@@ -67,18 +71,35 @@ const Navbar = () => {
 
             </nav>
 
-            <div className='flex items-center no-scrollview gap-2 mt-4 overflow-x-auto'>
-                {navLinks.map((link, index) => (
-                    <a
-                        key={index}
-                        href={link.href}
-                        className='text-gray-400 px-3 py-2 whitespace-nowrap hover:text-white cursor-pointer text-lg font-medium'
-                    >
-                        {link.name}
-                    </a>
-                ))}
+            <div className='flex w-full items-center justify-center'>
+                <div className='flex items-center no-scrollview gap-2 mt-4 overflow-x-auto'>
+                    {mainLinks.map((link, index) => (
+                        <a
+                            key={index}
+                            href={link.href}
+                            className='text-gray-400 px-3 py-2 whitespace-nowrap hover:text-white cursor-pointer text-lg font-medium'
+                        >
+                            {link.name}
+                        </a>
+                    ))}
 
+                </div> 
+                <div className='flex items-center no-scrollview gap-2 mt-4 overflow-x-auto'>
+                    {navLinks.map((link, index) => (
+                        <a
+                            key={index}
+                            href={link.href}
+                            className='text-gray-400 px-3 py-2 whitespace-nowrap hover:text-white cursor-pointer text-lg font-medium'
+                        >
+                            {link.name}
+                        </a>
+                    ))}
+
+                </div>
             </div>
+
+
+
         </div>
     )
 }
