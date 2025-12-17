@@ -73,7 +73,13 @@ const Navbar = () => {
                     <button className="bg-[#2c9cdb] cursor-pointer hover:bg-[#3fb0f1] px-5 font-medium py-2 rounded-md">
                         Sign Up
                     </button>
-                    <IonsMdMenu size={35} className="text-white cursor-pointer hover:bg-gray-700 p-1 rounded-xl" />
+                    <IonsMdMenu
+                        onClick={() => setModalOpen(!modalOpen)}
+                        onMouseEnter={() => setModalOpen(true)}
+
+                        size={35}
+                        className="text-white cursor-pointer hover:bg-gray-700 p-1 rounded-xl"
+                    />
                 </div>
 
 
@@ -117,8 +123,8 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {!modalOpen && (
-                <div className='flex flex-col bg-[#1d2b3a] z-50 justify-start items-start max-w-70 w-full
+            {modalOpen && (
+                <div onMouseLeave={() => setModalOpen(false)} className='flex flex-col bg-[#1d2b3a] z-50 justify-start items-start max-w-70 w-full
                  rounded-xl border border-gray-600 fixed top-16 right-5'>
                     <div className='flex flex-col w-full p-2'>
                         <button className='text-gray-100 flex gap-2 items-center w-full py-2.5 px-5 text-left 
@@ -136,7 +142,7 @@ const Navbar = () => {
                     <div className='flex items-center justify-between w-full py-2.5 px-5
                      font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
                             <button className='text-gray-100 flex gap-2 items-center text-left w-full'>
-                                <IoMdMoon className='text-lg' color='sky' />   Dark mode
+                                <IoMdMoon className='text-lg' color='#2173cc' />   Dark mode
                         </button>
                         {/* Toggle */}
                         <div className='w-13 h-6 bg-[#2c9cdb] rounded-full flex items-center p-1 cursor-pointer'>
