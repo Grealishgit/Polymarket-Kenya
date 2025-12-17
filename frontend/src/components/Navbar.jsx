@@ -10,7 +10,7 @@ import { BiSolidDollarCircle } from "react-icons/bi";
 import { TbPlugConnected } from "react-icons/tb";
 import { IoMdMoon } from "react-icons/io";
 
-const Navbar = () => {
+const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
 
     const [activeTab, setActiveTab] = useState('Trending');
     const [modalOpen, setModalOpen] = useState(false);
@@ -49,10 +49,10 @@ const Navbar = () => {
                 <div className='flex relative dark:bg-[#2f3f50]  bg-white items-center gap-2  px-2 w-150 py-1 rounded-lg'>
                     <GoSearch className='text-gray-400 ml-2 text-xl'
                     />
-                <input type="text"
+                    <input type="text"
                         placeholder="Search polymarket "
                         className="bg-[#2f3f50]  placeholder:text-gray-400 text-white rounded-lg px-4 py-2 focus:outline-none"
-                    /> 
+                    />
                     <span className='absolute right-5 text-xl text-gray-400'>/</span>
                 </div>
 
@@ -104,7 +104,7 @@ const Navbar = () => {
                         </a>
                     ))}
 
-                </div> 
+                </div>
 
                 <hr className='border-r border-gray-500 h-5 ml-2 mt-4' />
 
@@ -124,50 +124,62 @@ const Navbar = () => {
             </div>
 
             {modalOpen && (
-                <div onMouseLeave={() => setModalOpen(false)} className='flex flex-col bg-[#1d2b3a] z-50 justify-start items-start max-w-70 w-full
-                 rounded-xl border border-gray-600 fixed top-16 right-5'>
-                    <div className='flex flex-col w-full p-2'>
-                        <button className='text-gray-100 flex gap-2 items-center w-full py-2.5 px-5 text-left 
+                <div onMouseLeave={() => setModalOpen(false)} className={`flex flex-col z-50 justify-start items-start max-w-70 w-full ${themeMode === 'dark' ? 'bg-[#1d2b3a]' : 'bg-white'}
+                 rounded-xl border border-gray-600 fixed top-16 right-5`}>
+
+                    <div className={`flex flex-col ${themeMode === 'dark' ? 'text-gray-300' : 'text-black'} w-full p-2`}>
+                        <button className='flex gap-2 items-center w-full py-2.5 px-5 text-left 
                     font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
-                            <FaTrophy className='text-yellow-500 text-lg' color='gold' /> Leaderboard
-                    </button>
-                        <button className='text-gray-100 flex gap-2 items-center w-full py-2.5 px-5 text-left 
-                    font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
-                            <BiSolidDollarCircle className='text-green-600 text-lg' color='green' />  Rewards
-                    </button>
-                        <button className='text-gray-100 flex gap-2 items-center w-full py-2.5 px-5 text-left
-                     font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
-                            <TbPlugConnected className='text-red-500 text-lg' color='red' />   API
-                    </button>
-                    <div className='flex items-center justify-between w-full py-2.5 px-5
-                     font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
-                            <button className='text-gray-100 flex gap-2 items-center text-left w-full'>
-                                <IoMdMoon className='text-lg' color='#2173cc' />   Dark mode
+                            <FaTrophy className='text-yellow-500 text-lg' color='gold' />
+                            Leaderboard
                         </button>
-                        {/* Toggle */}
-                        <div className='w-13 h-6 bg-[#2c9cdb] rounded-full flex items-center p-1 cursor-pointer'>
-                            <div className='w-4 h-4 bg-white rounded-full'></div>
+
+                        <button className='flex gap-2 items-center w-full py-2.5 px-5 text-left 
+                    font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
+                            <BiSolidDollarCircle className='text-green-600 text-lg' color='green' />
+                            Rewards
+                        </button>
+
+                        <button className='flex gap-2 items-center w-full py-2.5 px-5 text-left
+                     font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
+                            <TbPlugConnected className='text-red-500 text-lg' color='red' />
+                            API
+                        </button>
+
+                        <div
+                            onClick={() => toggleTheme(themeMode === 'light' ? 'dark' : 'light')}
+                            className='flex items-center justify-between w-full py-2.5 px-5
+                     font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
+                            <div className={`flex gap-2 items-center text-left
+                                 ${themeMode === 'dark' ? 'text-gray-300' : 'text-black'}`}>
+                                <IoMdMoon className='text-lg' color='#2173cc' />   Dark mode
                             </div>
-                        </div> 
+
+
+                            <div className={`w-12 h-7  ${themeMode === 'dark' ? 'bg-[#2c9cdb]' : 'bg-gray-300'} rounded-full flex items-center p-1 transition-all`}>
+                                <div className={`w-5 h-5  ${themeMode === 'dark' ? 'bg-white translate-x-6' : 'bg-gray-600'} rounded-full transition-transform`}></div>
+                            </div>
+
+                        </div>
                     </div>
 
 
                     <hr className='border-t border-gray-500 w-full' />
 
-                    <div className='flex flex-col w-full p-2'>
+                    <div className={`flex flex-col ${themeMode === 'dark' ? 'text-gray-300' : 'text-gray-600'} w-full p-2`}>
 
-                        <button className='text-gray-300 w-full py-2.5 px-5 text-left
+                        <button className=' w-full py-2.5 px-5 text-left
                      font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer'>
-                        Accuracy
-                    </button>
-                        <button className='text-gray-300 w-full py-2.5 px-5 text-left
+                            Accuracy
+                        </button>
+                        <button className=' w-full py-2.5 px-5 text-left
                      font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer'>
-                        Documentation
-                    </button>
-                        <button className='text-gray-300 w-full py-2.5 px-5 text-left
+                            Documentation
+                        </button>
+                        <button className=' w-full py-2.5 px-5 text-left
                      font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer'>
-                        Terms Of Use
-                    </button>
+                            Terms Of Use
+                        </button>
 
                     </div>
                 </div>
