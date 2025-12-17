@@ -9,6 +9,7 @@ import { HiMiniArrowTrendingUp } from "react-icons/hi2";
 const Navbar = () => {
 
     const [activeTab, setActiveTab] = useState('Trending');
+    const [modalOpen, setModalOpen] = useState(false);
 
     const mainLinks = [
         { name: 'Trending', href: '#', icon: HiMiniArrowTrendingUp },
@@ -112,7 +113,44 @@ const Navbar = () => {
                 </div>
             </div>
 
+            {!modalOpen && (
+                <div className='flex flex-col bg-[#1d2b3a] z-50 justify-start items-start max-w-70 w-full
+                 rounded-md border border-gray-500 p-4 fixed top-16 right-5'>
+                    <button className='text-gray-100 w-full py-2.5 px-5 text-left 
+                    font-medium nav-bold hover:bg-gray-600 rounded-lg cursor-pointer mb-2'>
+                        Leaderboard
+                    </button>
+                    <button className='text-gray-100 w-full py-2.5 px-5 text-left 
+                    font-medium nav-bold hover:bg-gray-600 rounded-lg cursor-pointer mb-2'>
+                        Rewards
+                    </button>
+                    <button className='text-gray-100 w-full py-2.5 px-5 text-left
+                     font-medium nav-bold hover:bg-gray-600 rounded-lg cursor-pointer mb-2'>
+                        API
+                    </button>
+                    <div className='flex items-center justify-between w-full py-2.5 px-5
+                     font-medium nav-bold hover:bg-gray-600 rounded-lg cursor-pointer mb-2'>
+                        <button className='text-gray-100 text-left w-full'>
+                            Dark mode
+                        </button>
+                        {/* Toggle */}
+                        <div className='w-13 h-6 bg-[#2c9cdb] rounded-full flex items-center p-1 cursor-pointer'>
+                            <div className='w-4 h-4 bg-white rounded-full'></div>
+                        </div>
+                    </div>
 
+                    <hr className='border-t border-gray-500' />
+                    <button>
+                        Accuracy
+                    </button>
+                    <button>
+                        Documentation
+                    </button>
+                    <button>
+                        Terms Of Use
+                    </button>
+                </div>
+            )}
 
         </div>
     )
