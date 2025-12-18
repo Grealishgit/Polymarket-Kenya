@@ -135,36 +135,36 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
                  rounded-xl border border-gray-600 fixed top-16 right-5`}>
 
                     <div className={`flex flex-col ${themeMode === 'dark' ? 'text-gray-300' : 'text-black'} w-full p-2`}>
-                        <button className='flex gap-2 items-center w-full py-2.5 px-5 text-left 
-                    font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
+                        <button className={`flex gap-2 items-center w-full py-2.5 px-5 text-left 
+                    font-medium nav-bold ${themeMode === 'dark' ? 'hover:bg-[#2f3f50]' : 'hover:bg-gray-100/80'}  rounded-lg cursor-pointer mb-2`}>
                             <FaTrophy className='text-yellow-500 text-lg' color='gold' />
                             Leaderboard
                         </button>
 
-                        <button className='flex gap-2 items-center w-full py-2.5 px-5 text-left 
-                    font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
+                        <button className={`flex gap-2 items-center w-full py-2.5 px-5 text-left 
+                    font-medium nav-bold ${themeMode === 'dark' ? 'hover:bg-[#2f3f50]' : 'hover:bg-gray-100/80'}  rounded-lg cursor-pointer mb-2`}>
                             <BiSolidDollarCircle className='text-green-600 text-lg' color='green' />
                             Rewards
                         </button>
 
-                        <button className='flex gap-2 items-center w-full py-2.5 px-5 text-left
-                     font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
+                        <button className={`flex gap-2 items-center w-full py-2.5 px-5 text-left 
+                    font-medium nav-bold ${themeMode === 'dark' ? 'hover:bg-[#2f3f50]' : 'hover:bg-gray-100/80'}  rounded-lg cursor-pointer mb-2`}>
                             <TbPlugConnected className='text-red-500 text-lg' color='red' />
                             API
                         </button>
 
                         <div
                             onClick={() => toggleTheme(themeMode === 'light' ? 'dark' : 'light')}
-                            className='flex items-center justify-between w-full py-2.5 px-5
-                     font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer mb-2'>
+                            className={`flex justify-between gap-2 items-center w-full py-2.5 px-5 text-left 
+                    font-medium nav-bold ${themeMode === 'dark' ? 'hover:bg-[#2f3f50]' : 'hover:bg-gray-100/80'}  rounded-lg cursor-pointer mb-2`}>
                             <div className={`flex gap-2 items-center text-left
                                  ${themeMode === 'dark' ? 'text-gray-300' : 'text-black'}`}>
                                 <IoMdMoon className='text-lg' color='#2173cc' />   Dark mode
                             </div>
 
 
-                            <div className={`w-12 h-7  ${themeMode === 'dark' ? 'bg-[#2c9cdb]' : 'bg-gray-300'} rounded-full flex items-center p-1 transition-all`}>
-                                <div className={`w-5 h-5  ${themeMode === 'dark' ? 'bg-white translate-x-6' : 'bg-gray-600'} rounded-full transition-transform`}></div>
+                            <div className={`w-11 h-7  ${themeMode === 'dark' ? 'bg-[#2c9cdb]' : 'bg-gray-200'} rounded-full flex items-center p-1 transition-all`}>
+                                <div className={`w-5 h-5  ${themeMode === 'dark' ? 'bg-white translate-x-6' : 'bg-white'} rounded-full transition-transform`}></div>
                             </div>
 
                         </div>
@@ -175,16 +175,19 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
 
                     <div className={`flex flex-col ${themeMode === 'dark' ? 'text-gray-300' : 'text-gray-600'} w-full p-2`}>
 
-                        <button className=' w-full py-2.5 px-5 text-left
-                     font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer'>
+                        <button className={`w-full py-2.5 px-5 text-left 
+                        ${themeMode === 'dark' ? 'hover:bg-[#2f3f50]' : 'hover:bg-gray-100/80'}
+                     font-medium nav-bold  rounded-lg cursor-pointer`}>
                             Accuracy
                         </button>
-                        <button className=' w-full py-2.5 px-5 text-left
-                     font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer'>
+                        <button className={`w-full py-2.5 px-5 text-left 
+                        ${themeMode === 'dark' ? 'hover:bg-[#2f3f50]' : 'hover:bg-gray-100/80'}
+                     font-medium nav-bold  rounded-lg cursor-pointer`}>
                             Documentation
                         </button>
-                        <button className=' w-full py-2.5 px-5 text-left
-                     font-medium nav-bold hover:bg-[#2f3f50] rounded-lg cursor-pointer'>
+                        <button className={`w-full py-2.5 px-5 text-left 
+                        ${themeMode === 'dark' ? 'hover:bg-[#2f3f50]' : 'hover:bg-gray-100/80'}
+                     font-medium nav-bold  rounded-lg cursor-pointer`}>
                             Terms Of Use
                         </button>
 
