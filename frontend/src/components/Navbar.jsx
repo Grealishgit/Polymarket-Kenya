@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import logo from '../assets/images/logo-white.svg'
+import logob from '../assets/images/logo-black.svg'
 import flag from '../assets/images/flag.png'
 import { MdMenu as IonsMdMenu } from 'react-icons/md'
 import { GoSearch } from "react-icons/go";
@@ -39,19 +40,24 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
     ]
 
     return (
-        <div className="w-full flex border-b border-gray-700 fixed top-0 z-10 dark:bg-[#1d2b3a] bg-white flex-col p-2">
+        <div className={`w-full flex border-b  ${themeMode === 'dark' ? 'bg-[#1d2b3a] border-gray-700' : 'bg-white border-gray-200'} fixed top-0 z-10  flex-col p-2`}>
             <nav className="w-full flex items-center h-16 justify-between p-4 text-white">
                 <div className='flex items-center gap-4'>
-                    <img src={logo} alt="" className='w-auto h-8' />
+                    {themeMode === 'dark' ? (
+                        <img src={logo} alt="" className='w-auto h-8' />
+                    ) : (
+                        <img src={logob} alt="" className='w-auto h-8' />
+                    )}
+
                     <img src={flag} alt="" className='w-auto h-7 -rotate-4' />
                 </div>
 
-                <div className='flex relative dark:bg-[#2f3f50]  bg-white items-center gap-2  px-2 w-150 py-1 rounded-lg'>
+                <div className={`flex relative d  ${themeMode === 'dark' ? 'bg-[#2f3f50]' : 'bg-[#f4f5f6]'} items-center gap-2  px-2 w-150 py-1 rounded-lg`}>
                     <GoSearch className='text-gray-400 ml-2 text-xl'
                     />
                     <input type="text"
                         placeholder="Search polymarket "
-                        className="bg-[#2f3f50]  placeholder:text-gray-400 text-white rounded-lg px-4 py-2 focus:outline-none"
+                        className={`bg-[#2f3f50] ${themeMode === 'dark' ? 'bg-[#2f3f50]' : 'bg-[#f4f5f6]'} placeholder:text-gray-400 text-white rounded-lg px-4 py-2 focus:outline-none`}
                     />
                     <span className='absolute right-5 text-xl text-gray-400'>/</span>
                 </div>
@@ -59,26 +65,27 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
 
 
 
-                <div className='flex items-center gap-2 text-[#2c9cdb] hover:text-[#4ab1ec] cursor-pointer'>
+                <div className={`flex items-center gap-2 
+                    ${themeMode === 'dark' ? 'text-[#2c9cdb] font-semibold' : 'text-[#1452f0]'}  cursor-pointer`}>
                     <AiFillInfoCircle className='' />
-                    <a href="" className='text-lg font-semibold'>How it works</a>
+                    <a href="" className='text-lg '>How it works</a>
                 </div>
 
 
                 <div className='flex items-center gap-4'>
-                    <button className="text-[#2c9cdb] hover:text-[#35acf1] 
-                    rounded-lg hover:bg-gray-700/90 cursor-pointer items-center justify-center px-4 py-1.5 font-semibold text-lg  ">
+                    <button className={`${themeMode === 'dark' ? 'text-[#2c9cdb] hover:bg-gray-700/90 font-semibold' : 'text-[#1452f0] hover:bg-gray-100/80'}  rounded-lg  cursor-pointer items-center justify-center px-4 py-1.5  text-lg`}>
+
                         Log In
                     </button>
-                    <button className="bg-[#2c9cdb] cursor-pointer hover:bg-[#3fb0f1] px-5 font-medium py-2 rounded-md">
+                    <button className={`px-5 font-semibold py-2 rounded-md 
+                        ${themeMode === 'dark' ? 'text-[#2c9cdb] bg-[#2c9cdb]' : 'text-white bg-[#1452f0]'} hover:opacity-90 cursor-pointer`}>
                         Sign Up
                     </button>
                     <IonsMdMenu
                         onClick={() => setModalOpen(!modalOpen)}
                         onMouseEnter={() => setModalOpen(true)}
-
                         size={35}
-                        className="text-white cursor-pointer hover:bg-gray-700 p-1 rounded-xl"
+                        className={` cursor-pointer ${themeMode === 'dark' ? 'text-white hover:bg-gray-700' : 'text-black hover:bg-gray-100/80'}  p-1 rounded-xl`}
                     />
                 </div>
 
@@ -92,29 +99,29 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
                         <a
                             key={index}
                             href={link.href}
-                            className={` gap-2 flex items-center px-1 py-2 whitespace-nowrap nav-bold
-                                 hover:text-white cursor-pointer  font-medium
-                                 ${activeTab === link.name ? 'text-white' : 'text-gray-400'}`}
+                            className={`gap-2 flex items-center px-1 py-2 whitespace-nowrap cursor-pointer nav-bold font-medium
+                               
+                                ${activeTab === link.name ? (themeMode === 'dark' ? 'text-gray-300 hover:text-white' : 'text-black ') : 'text-gray-400 hover:text-black'}`}
                             onClick={() => setActiveTab(link.name)}
                         >
                             {link.icon && <link.icon
-                                className={` text-xl ${activeTab === link.name ? 'text-white' : 'text-gray-400'}`} />}
-
+                                className={`text-xl ${activeTab === link.name ? (themeMode === 'dark' ? 'text-white' : 'text-black') : ''}`}
+                            />}
                             {link.name}
                         </a>
                     ))}
 
                 </div>
 
-                <hr className='border-r border-gray-500 h-5 ml-2 mt-4' />
+                <hr className={`border-r ${themeMode === 'dark' ? 'border-gray-700' : 'border-gray-300'}  h-5 ml-2 mt-4 `} />
 
                 <div className='flex items-center no-scrollview gap-2 mt-4 overflow-x-auto'>
                     {navLinks.map((link, index) => (
                         <a
                             key={index}
                             href={link.href}
-                            className='text-gray-400 px-3 py-2 whitespace-nowrap hover:text-white cursor-pointer
-                             nav-bold font-medium'
+                            className={`px-3 py-2 whitespace-nowrap ${themeMode === 'dark' ? 'text-gray-300 hover:text-white' : 'text-gray-400 hover:text-black'}  cursor-pointer
+                             nav-bold font-medium`}
                         >
                             {link.name}
                         </a>

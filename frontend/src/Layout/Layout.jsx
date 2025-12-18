@@ -113,7 +113,7 @@ const Layout = () => {
                 </div>
 
             ) : (
-                <div className={`min-h-screen flex ${theme === "dark" ? "bg-[#1d2b3a]" : "bg-[#ffffff]"}`}>
+                    <div className={`min-h-screen flex `}>
                     {/* <Sidebar theme={theme} themeMode={themeMode} setTheme={toggleTheme} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
                     {/* Main Content Section */}
                     <main className={`flex-1  overflow-y-auto ${theme === "dark" ? "text-white" : "text-black"}`}>
