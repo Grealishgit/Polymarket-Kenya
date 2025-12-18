@@ -107,16 +107,17 @@ const Layout = () => {
     return (
         <>
             {loading ? (
-                <div className="flex w-full items-center justify-center min-h-screen">
+                <div className={`flex w-full items-center justify-center min-h-screen ${theme === "dark" ? "bg-[#1d2b3a]" : "bg-white"}`}>
                     {/* <LoadingSpinner /> */}
-                    <p>Loading</p>
+                    <p className={`text-lg ${theme === "dark" ? "text-white" : "text-black"}`}>Loading...</p>
                 </div>
 
             ) : (
-                    <div className={`min-h-screen flex `}>
+                    <div className={`min-h-screen flex ${theme === "dark" ? "bg-[#1d2b3a]" : "bg-white"}`}>
                     {/* <Sidebar theme={theme} themeMode={themeMode} setTheme={toggleTheme} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
                     {/* Main Content Section */}
-                    <main className={`flex-1  overflow-y-auto ${theme === "dark" ? "text-white" : "text-black"}`}>
+                        <main className={`flex-1  overflow-y-auto 
+                            ${theme === "dark" ? "text-white bg-[#1d2b3a]" : "text-black bg-white"}`}>
 
                         <Navbar themeMode={themeMode} setTheme={toggleTheme} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
                         <Outlet context={{ theme, setTheme: toggleTheme, sidebarOpen, setSidebarOpen }} />

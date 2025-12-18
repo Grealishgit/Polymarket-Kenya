@@ -77,8 +77,8 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
 
                         Log In
                     </button>
-                    <button className={`px-5 font-semibold py-2 rounded-md 
-                        ${themeMode === 'dark' ? 'text-[#2c9cdb] bg-[#2c9cdb]' : 'text-white bg-[#1452f0]'} hover:opacity-90 cursor-pointer`}>
+                    <button className={`px-5 font-medium nav-bold text-white  py-2 rounded-md 
+                        ${themeMode === 'dark' ? 'text- bg-[#2c9cdb]' : 'bg-[#1452f0]'} hover:opacity-90 cursor-pointer`}>
                         Sign Up
                     </button>
                     <IonsMdMenu
@@ -164,7 +164,7 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
 
 
                             <div className={`w-11 h-7  ${themeMode === 'dark' ? 'bg-[#2c9cdb]' : 'bg-gray-200'} rounded-full flex items-center p-1 transition-all`}>
-                                <div className={`w-5 h-5  ${themeMode === 'dark' ? 'bg-white translate-x-6' : 'bg-white'} rounded-full transition-transform`}></div>
+                                <div className={`w-5 h-5  ${themeMode === 'dark' ? 'bg-white translate-x-4' : 'bg-white'} rounded-full transition-transform`}></div>
                             </div>
 
                         </div>
