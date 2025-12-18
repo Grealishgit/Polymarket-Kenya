@@ -5,42 +5,22 @@ import flag from '../assets/images/flag.png'
 import { MdMenu as IonsMdMenu } from 'react-icons/md'
 import { GoSearch } from "react-icons/go";
 import { AiFillInfoCircle } from "react-icons/ai";
-import { HiMiniArrowTrendingUp } from "react-icons/hi2";
+
 import { FaTrophy } from "react-icons/fa";
 import { BiSolidDollarCircle } from "react-icons/bi";
 import { TbPlugConnected } from "react-icons/tb";
 import { IoMdMoon } from "react-icons/io";
+import { mainLinks, navLinks } from '../lib/data'
 
 const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
 
     const [activeTab, setActiveTab] = useState('Trending');
     const [modalOpen, setModalOpen] = useState(false);
 
-    const mainLinks = [
-        { name: 'Trending', href: '#', icon: HiMiniArrowTrendingUp },
-        { name: 'Breaking', href: '#', icon: '' },
-        { name: 'New', href: '#', icon: '' },
-    ]
 
-    const navLinks = [
-
-        { name: 'Politics', href: '#' },
-        { name: 'Sports', href: '#' },
-        { name: 'Finance', href: '#' },
-        { name: 'Crypto', href: '#' },
-        { name: 'Geopolitics', href: '#' },
-        { name: 'Earnings', href: '#' },
-        { name: 'Tech', href: '#' },
-        { name: 'Culture', href: '#' },
-        { name: 'World', href: '#' },
-        { name: 'Economy', href: '#', },
-        { name: 'Elections', href: '#' },
-        { name: 'Mentions', href: '#' },
-        { name: 'More', href: '#' },
-    ]
 
     return (
-        <div className={`w-full flex border-b  ${themeMode === 'dark' ? 'bg-[#1d2b3a] border-gray-700' : 'bg-white border-gray-200'} fixed top-0 z-10  flex-col p-2`}>
+        <div className={`w-full flex border-b  ${themeMode === 'dark' ? 'bg-[#1d2b3a] border-[#3d5266]' : 'bg-white border-gray-200'} fixed top-0 z-10  flex-col p-2`}>
             <nav className="w-full flex items-center h-16 justify-between p-4 text-white">
                 <div className='flex items-center gap-4'>
                     {themeMode === 'dark' ? (
@@ -101,7 +81,7 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
                             href={link.href}
                             className={`gap-2 flex items-center px-1 py-2 whitespace-nowrap cursor-pointer nav-bold font-medium
                                
-                                ${activeTab === link.name ? (themeMode === 'dark' ? 'text-gray-300 hover:text-white' : 'text-black ') : 'text-gray-400 hover:text-black'}`}
+                                ${activeTab === link.name ? (themeMode === 'dark' ? 'text-white' : 'text-black ') : 'text-gray-400 hover:text-white'}`}
                             onClick={() => setActiveTab(link.name)}
                         >
                             {link.icon && <link.icon
