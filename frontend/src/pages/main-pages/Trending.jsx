@@ -179,7 +179,7 @@ const Trending = () => {
                                                 <path
                                                     d={createArcPath(100)}
                                                     fill="none"
-                                                    stroke="#e6e8ea"
+                                                    stroke={theme === 'dark' ? '#4d657c' : '#e6e8ea'}
                                                     strokeWidth="6"
                                                     strokeLinecap="round"
                                                 />
