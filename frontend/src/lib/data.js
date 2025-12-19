@@ -63,3 +63,141 @@ export const trendingInputs = [
     { name: 'mvp', path: '/' },
     { name: 'epstein', path: '/' },
 ]
+
+export const trendingData = [
+    {
+        id: 1,
+        title: 'Will Trump release Epstein files by...?',
+        image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fwill-trump-release-epstein-files-by-1D_iBMrzbQj2.jpg&w=96&q=75',
+        category: 'Politics',
+        volume: '$16m Vol.',
+        options: [
+            {
+                date: 'December 19',
+                percentage: 89,
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            },
+            {
+                date: 'December 20',
+                percentage: 92,
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            }
+        ]
+    },
+    {
+        id: 2,
+        title: 'Who will Trump nominate as Fed Chair?',
+        image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fwho-will-trump-nominate-as-fed-chair-9p19ttRwsbKL.png&w=96&q=75',
+        category: 'Politics',
+        volume: '$72m Vol.',
+        options: [
+            {
+                name: 'Kevin Hassett',
+                percentage: 55,
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            },
+            {
+                name: 'Kevin Warsh',
+                percentage: 20,
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            }
+        ]
+    },
+    {
+        id: 3,
+        title: 'How many Gold Cards will Trump sell in 2025?',
+        image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fhow-many-gold-cards-will-trump-sell-in-2025-UlOBdrjUX5Go.jpg&w=96&q=75',
+        category: 'Politics',
+        volume: '$8m Vol.',
+        author: 'David Friedberg',
+        frequency: 'Monthly',
+        options: [
+            {
+                range: '101-1k',
+                percentage: 4,
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            },
+            {
+                range: '1k-2.5k',
+                percentage: 8,
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            }
+        ]
+    },
+    {
+        id: 4,
+        title: 'Will Bitcoin reach $150k by December 31?',
+        image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fwhat-will-trump-say-at-national-defense-authorization-act-signing-on-december-18-QByhHuUSSwrs.jpg&w=96&q=75',
+        category: 'Crypto',
+        volume: '$45m Vol.',
+        options: [
+            {
+                date: 'December 20',
+                percentage: 67,
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            },
+            {
+                date: 'December 31',
+                percentage: 78,
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            }
+        ]
+    },
+    {
+        id: 5,
+        title: 'Will Ukraine reclaim territory by...?',
+        image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fwill-trump-and-putin-meet-next-in-another-country-754-536-882-631-152-Sivx1Fw9C2UJ.jpg&w=96&q=75',
+        category: 'Geopolitics',
+        volume: '$23m Vol.',
+        options: [
+            {
+                date: 'December 19',
+                percentage: 34,
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            },
+            {
+                date: 'December 20',
+                percentage: 41,
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            },
+            {
+                date: 'December 31',
+                percentage: 52,
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            }
+        ]
+    },
+    {
+        id: 6,
+        title: 'Will SpaceX launch Starship successfully?',
+        image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fwill-trump-remove-jerome-powell-njJA1TCPwhmt.jpg&w=96&q=75',
+        category: 'Tech',
+        volume: '$12m Vol.',
+        author: 'Elon Musk',
+        options: [
+            {
+                date: 'December 20',
+                percentage: 85,
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            },
+            {
+                date: 'December 31',
+                percentage: 93,
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            }
+        ]
+    }
+]

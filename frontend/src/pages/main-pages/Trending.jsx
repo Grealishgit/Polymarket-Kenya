@@ -4,7 +4,7 @@ import { TbSearch } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
 import { PiSlidersHorizontal } from "react-icons/pi";
 import { CiBookmark } from "react-icons/ci";
-import { trendingInputs, trendingLinks } from '../../lib/data';
+import { trendingData, trendingInputs, trendingLinks } from '../../lib/data';
 import { IoChevronBackOutline } from "react-icons/io5";
 import { HiMiniArrowTrendingUp } from "react-icons/hi2";
 
@@ -120,10 +120,80 @@ const Trending = () => {
                         <IoChevronBackOutline className='rotate-180 text-xl' />
                     </button>
                 </div>
-
-
-
             </nav>
+
+            {/* 3 Cards for the trending data */}
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 w-full'>
+                {trendingData.map((item) => (
+                    <div
+                        key={item.id}
+                        className={`flex flex-col rounded-xl border ${theme === 'dark' ? 'bg-[#2f3f50] border-gray-700' : 'bg-white border-gray-300'} p-4 hover:border-gray-500 transition-colors cursor-pointer`}
+                    >
+                        {/* Header with image and title */}
+                        <div className='flex items-start gap-3 mb-4'>
+                            <img
+                                src={item.image}
+                                alt={item.title}
+                                className='w-12 h-12 rounded-lg object-cover'
+                            />
+                            <h3 className='text-white text-base font-medium leading-tight flex-1'>
+                                {item.title}
+                            </h3>
+                        </div>
+
+                        {/* Options/Predictions */}
+                        <div className='flex flex-col gap-3 mb-4'>
+                            {item.options.map((option, index) => (
+                                <div key={index} className='flex items-center justify-between'>
+                                    <span className='text-white text-sm'>
+                                        {option.date || option.name || option.range}
+                                    </span>
+                                    <div className='flex items-center gap-3'>
+                                        <span className='text-white font-bold text-lg'>
+                                            {option.percentage}%
+                                        </span>
+                                        <button className='bg-green-600 hover:bg-green-700 text-white text-xs px-3 py-1 rounded'>
+                                            {option.yesVotes}
+                                        </button>
+                                        <button className='bg-red-600 hover:bg-red-700 text-white text-xs px-3 py-1 rounded'>
+                                            {option.noVotes}
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Footer with volume and actions */}
+                        <div className='flex items-center justify-between pt-3 border-t border-gray-700'>
+                            <div className='flex items-center gap-2 text-gray-400 text-xs'>
+                                <span>{item.volume}</span>
+                                {item.author && (
+                                    <>
+                                        <span>•</span>
+                                        <span>{item.author}</span>
+                                    </>
+                                )}
+                                {item.frequency && (
+                                    <>
+                                        <span>•</span>
+                                        <span>{item.frequency}</span>
+                                    </>
+                                )}
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <button className='text-gray-400 hover:text-white transition-colors'>
+                                    <svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z' />
+                                    </svg>
+                                </button>
+                                <button className='text-gray-400 hover:text-white transition-colors'>
+                                    <CiBookmark className='w-5 h-5' />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
