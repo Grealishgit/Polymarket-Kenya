@@ -127,7 +127,7 @@ const Trending = () => {
                 {trendingData.map((item) => (
                     <div
                         key={item.id}
-                        className={`flex flex-col rounded-xl border ${theme === 'dark' ? 'bg-[#2f3f50] border-gray-700' : 'bg-white border-gray-300'} p-4 hover:border-gray-500 transition-colors cursor-pointer`}
+                        className={`flex flex-col rounded-xl ${theme === 'dark' ? 'bg-[#2f3f50] border-gray-700' : 'bg-white border border-gray-200 '} p-4  transition-colors cursor-pointer`}
                     >
                         {/* Header with image, title, and optional chance */}
                         <div className='flex items-start gap-3 mb-4'>
@@ -137,13 +137,14 @@ const Trending = () => {
                                 className='w-12 h-12 rounded-lg object-cover'
                             />
                             <div className='flex-1 flex items-start justify-between gap-2'>
-                                <h3 className='text-white text-base hover:underline cursor-pointer font-medium leading-tight flex-1'>
+                                <h3 className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-base hover:underline cursor-pointer font-medium leading-tight flex-1`}>
                                     {item.title}
                                 </h3>
                                 {item.type === 'simple' && item.chance && (
                                     <div className='flex flex-col items-end shrink-0'>
-                                        <span className='text-white font-bold text-2xl'>{item.chance}</span>
-                                        <span className='text-gray-400 text-xs'>chance</span>
+                                        <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} font-bold text-2xl`}>{item.chance}</span>
+                                        <span className={` ${theme === 'dark' ? 'text-gray-400' : 'text-black'}
+                                              text-xs`}>chance</span>
                                     </div>
                                 )}
                             </div>
@@ -164,17 +165,17 @@ const Trending = () => {
                             <div className='flex flex-col gap-3 mb-4'>
                                     {item.options && item.options.map((option, index) => (
                                         <div key={index} className='flex items-center justify-between'>
-                                            <span className='text-white hover:underline cursor-pointer text-md'>
+                                            <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} hover:underline cursor-pointer text-md`}>
                                                 {option.date || option.name || option.range}
                                             </span>
                                             <div className='flex items-center gap-3'>
-                                                <span className='text-white font-bold text-lg'>
+                                                <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} font-bold text-lg`}>
                                                 {typeof option.percentage === 'number' ? `${option.percentage}%` : option.percentage}
                                             </span>
-                                            <button className='bg-[#325455] text-[#43c267] hover:bg-[#43c772] nav-bold cursor-pointer hover:text-white text-sm px-3 py-1 rounded'>
+                                                <button className={`bg-[#325455] ${theme == 'dark' ? 'text-[#43c267] hover:bg-[#43c772] ' : 'bg-[#e3f7ea] text-[#30a159]'} nav-bold cursor-pointer hover:text-white text-sm px-3 py-1 rounded`}>
                                                 {option.yesVotes}
                                             </button>
-                                            <button className='bg-[#4a3e4c] text-[#d33b4a] hover:bg-[#d33b5a] nav-bold cursor-pointer hover:text-white text-sm px-3 py-1 rounded'>
+                                                <button className={`bg-[#4a3e4c] ${theme == 'dark' ? 'text-[#d33b4a] hover:bg-[#d33b5a] ' : 'bg-[#fceded] text-[#e23979]'} nav-bold cursor-pointer hover:text-white text-sm px-3 py-1 rounded`}>
                                                 {option.noVotes}
                                             </button>
                                         </div>
