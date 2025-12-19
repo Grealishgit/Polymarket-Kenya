@@ -122,46 +122,66 @@ const Trending = () => {
                 </div>
             </nav>
 
-            {/* 3 Cards for the trending data */}
+            {/* Cards for the trending data */}
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 w-full'>
                 {trendingData.map((item) => (
                     <div
                         key={item.id}
                         className={`flex flex-col rounded-xl border ${theme === 'dark' ? 'bg-[#2f3f50] border-gray-700' : 'bg-white border-gray-300'} p-4 hover:border-gray-500 transition-colors cursor-pointer`}
                     >
-                        {/* Header with image and title */}
+                        {/* Header with image, title, and optional chance */}
                         <div className='flex items-start gap-3 mb-4'>
                             <img
                                 src={item.image}
                                 alt={item.title}
                                 className='w-12 h-12 rounded-lg object-cover'
                             />
-                            <h3 className='text-white text-base hover:underline cursor-pointer font-medium leading-tight flex-1'>
-                                {item.title}
-                            </h3>
+                            <div className='flex-1 flex items-start justify-between gap-2'>
+                                <h3 className='text-white text-base hover:underline cursor-pointer font-medium leading-tight flex-1'>
+                                    {item.title}
+                                </h3>
+                                {item.type === 'simple' && item.chance && (
+                                    <div className='flex flex-col items-end shrink-0'>
+                                        <span className='text-white font-bold text-2xl'>{item.chance}</span>
+                                        <span className='text-gray-400 text-xs'>chance</span>
+                                    </div>
+                                )}
+                            </div>
                         </div>
 
-                        {/* Options/Predictions */}
-                        <div className='flex flex-col gap-3 mb-4'>
-                            {item.options.map((option, index) => (
-                                <div key={index} className='flex items-center justify-between'>
-                                    <span className='text-white hover:underline cursor-pointer text-md'>
-                                        {option.date || option.name || option.range}
-                                    </span>
-                                    <div className='flex items-center gap-3'>
-                                        <span className='text-white font-bold text-lg'>
-                                            {option.percentage}%
-                                        </span>
-                                        <button className='bg-[#325455] text-[#43c267] hover:bg-[#43c772] nav-bold cursor-pointer hover:text-white text-sm px-3 py-1 rounded'>
-                                            {option.yesVotes}
-                                        </button>
-                                        <button className='bg-[#4a3e4c] text-[#d33b4a] hover:bg-[#d33b5a] nav-bold cursor-pointer hover:text-white text-sm px-3 py-1 rounded'>
-                                            {option.noVotes}
-                                        </button>
+                        {/* Simple card with just Yes/No buttons */}
+                        {item.type === 'simple' ? (
+                            <div className='flex gap-2 mb-4'>
+                                <button className='flex-1 bg-[#325455] text-[#43c267] hover:bg-[#43c772] nav-bold cursor-pointer hover:text-white text-lg py-3 rounded-lg font-semibold'>
+                                    Yes
+                                </button>
+                                <button className='flex-1 bg-[#4a3e4c] text-[#d33b4a] hover:bg-[#d33b5a] nav-bold cursor-pointer hover:text-white text-lg py-3 rounded-lg font-semibold'>
+                                    No
+                                </button>
+                            </div>
+                        ) : (
+                            /* Options/Predictions for complex cards */
+                            <div className='flex flex-col gap-3 mb-4'>
+                                    {item.options && item.options.map((option, index) => (
+                                        <div key={index} className='flex items-center justify-between'>
+                                            <span className='text-white hover:underline cursor-pointer text-md'>
+                                                {option.date || option.name || option.range}
+                                            </span>
+                                            <div className='flex items-center gap-3'>
+                                                <span className='text-white font-bold text-lg'>
+                                                {typeof option.percentage === 'number' ? `${option.percentage}%` : option.percentage}
+                                            </span>
+                                            <button className='bg-[#325455] text-[#43c267] hover:bg-[#43c772] nav-bold cursor-pointer hover:text-white text-sm px-3 py-1 rounded'>
+                                                {option.yesVotes}
+                                            </button>
+                                            <button className='bg-[#4a3e4c] text-[#d33b4a] hover:bg-[#d33b5a] nav-bold cursor-pointer hover:text-white text-sm px-3 py-1 rounded'>
+                                                {option.noVotes}
+                                            </button>
+                                        </div>
                                     </div>
+                                ))}
                                 </div>
-                            ))}
-                        </div>
+                        )}
 
                         {/* Footer with volume and actions */}
                         <div className='flex items-center justify-between pt-3 border-t border-gray-700'>

@@ -199,5 +199,88 @@ export const trendingData = [
                 noVotes: 'No'
             }
         ]
+    },
+    {
+        id: 7,
+        title: 'Ukraine Tomahawk missile strike by December 31?',
+        image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fnothing-ever-happens-world-leader-out-edition-3t_x9n_2vnR7.jpg&w=96&q=75',
+        category: 'Geopolitics',
+        volume: '$338k Vol.',
+        chance: '<1%',
+        type: 'simple'
+    },
+    {
+        id: 8,
+        title: 'Will Trump remove his Rob Reiner post?',
+        image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fwill-trump-remove-jerome-powell-njJA1TCPwhmt.jpg&w=96&q=75',
+        category: 'Politics',
+        volume: '$133k Vol.',
+        chance: '1%',
+        type: 'simple'
+    },
+    {
+        id: 9,
+        title: 'Ukraine agrees not to join NATO in 2025?',
+        image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fwill-xi-visit-the-us-by-december-31-aW19ohLq1WIS.jpg&w=96&q=75',
+        category: 'Geopolitics',
+        volume: '$1m Vol.',
+        frequency: 'Annual',
+        chance: '5%',
+        type: 'simple'
+    },
+    {
+        id: 10,
+        title: 'Will Trump acquire Greenland in 2025?',
+        image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fwill-trump-be-impeached-in-2025-bm5xwPQil7AC.jpg&w=96&q=75',
+        category: 'Politics',
+        volume: '$5m Vol.',
+        chance: '1%',
+        type: 'simple'
+    },
+    {
+        id: 11,
+        title: 'Trump approval rating on December 19?',
+        image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fwill-the-court-force-trump-to-refund-tariffs-2h3USn8WqtbE.jpg&w=96&q=75',
+        category: 'Politics',
+        volume: '$89k Vol.',
+        frequency: 'Weekly',
+        chance: null,
+        type: 'range',
+        options: [
+            {
+                range: '<42.0',
+                percentage: '<1%',
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            },
+            {
+                range: '42.0-42.4',
+                percentage: '5%',
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            }
+        ]
+    },
+    {
+        id: 12,
+        title: 'Who will Trump talk to in December?',
+        image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fwhich-countries-will-donald-trump-visit-in-2025-MFgaFiz7YhFu.jpg&w=96&q=75',
+        category: 'Politics',
+        volume: '$754k Vol.',
+        frequency: 'Monthly',
+        options: [
+            {
+                name: 'Elon Musk',
+                percentage: 30,
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            },
+            {
+                name: 'Vladimir Putin',
+                percentage: 27,
+                yesVotes: 'Yes',
+                noVotes: 'No'
+            }
+        ]
     }
 ]
