@@ -55,3 +55,11 @@ export const trendingLinks = [
     { name: 'Crypto Prices', path: '/' },
     { name: 'Bitcoin', path: '/' },
 ]
+
+export const trendingInputs = [
+    { name: 'tiktok', path: '/' },
+    { name: 'brown university', path: '/' },
+    { name: 'jake paul', path: '/' },
+    { name: 'mvp', path: '/' },
+    { name: 'epstein', path: '/' },
+]

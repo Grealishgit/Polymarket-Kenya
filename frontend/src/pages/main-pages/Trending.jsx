@@ -4,11 +4,16 @@ import { TbSearch } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
 import { PiSlidersHorizontal } from "react-icons/pi";
 import { CiBookmark } from "react-icons/ci";
-import { trendingLinks } from '../../lib/data';
+import { trendingInputs, trendingLinks } from '../../lib/data';
 import { IoChevronBackOutline } from "react-icons/io5";
+import { HiMiniArrowTrendingUp } from "react-icons/hi2";
+
+
 const Trending = () => {
     const [activeTab, setActiveTab] = useState('All');
     const scrollContainerRef = useRef(null);
+    const [searchInput, setSearchInput] = useState('');
+    const [searchInputActive, setSearchInputActive] = useState(false);
 
     const scrollLeft = () => {
         if (scrollContainerRef.current) {
@@ -30,20 +35,48 @@ const Trending = () => {
 
     const { theme, setTheme: toggleTheme } = useOutletContext();
     return (
-        <div className={`flex flex-col items-center pt-38 p-4  min-h-screen w-full 
+        <div className={`flex  flex-col items-center pt-38 p-4  min-h-screen w-full 
         ${theme === 'dark' ? 'bg-[#1d2b3a]' : 'bg-[#ffffff]'}`}>
             <nav className='flex justify-between items-center w-full'>
                 <div className='flex items-center gap-2'>
                     <div className={`flex relative  
                     ${theme === 'dark' ? 'bg-[#2f3f50]' : 'bg-[#f4f5f6]'} items-center gap-2  px-2 w-65 py-1 rounded-lg`}>
-                    <TbSearch className='text-gray-400 ml-2 text-xl'
+                        <TbSearch className='text-gray-400  text-xl'
                     />
-                    <input type="text"
-                        placeholder="Search polymarket "
+                        <input type="text"
+                            value={searchInput}
+                            onChange={(e) => setSearchInput(e.target.value)}
+                            placeholder="Search"
+                            onFocus={() => setSearchInputActive(true)}
+                            onBlur={() => setSearchInputActive(false)}
+
                         className={`bg-[#2f3f50] ${theme === 'dark' ? 'bg-[#2f3f50]' : 'bg-[#f4f5f6]'} placeholder:text-gray-400 text-white rounded-lg py-2 focus:outline-none`}
-                    />
-                    <span className='absolute right-5 text-xl text-gray-400'><IoClose /></span>
-                </div>
+                        />
+                        {searchInput.length > 0 && (
+                            <IoClose className='absolute right-5 text-xl text-gray-400 cursor-pointer'
+                                onClick={() => setSearchInput('')}
+                            />
+                        )}
+                        {/* Active Search input dialog */}
+                        {searchInputActive && (
+                            <div className='flex flex-col absolute rounded-lg border border-gray-600  left-3 top-13 w-55 bg-[#1d2b3a]'>
+                                <div className='p-3'>
+                                    <p className='text-gray-400 text-sm'>TRENDING</p>
+                                </div>
+
+                                {trendingInputs.map((input, index) => (
+                                    <button key={index} className='text-white px-4 cursor-pointer py-2 hover:bg-[#2f3f50] w-full text-left'>
+                                        <HiMiniArrowTrendingUp className='inline-block mr-2 text-xl' />
+                                        {input.name}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+
+
+                    </div>
+
+
 
                     <button className='flex px-2 py-2 rounded-lg hover:bg-[#2f3f50] cursor-pointer'>
                         <PiSlidersHorizontal className='text-2xl' />   
