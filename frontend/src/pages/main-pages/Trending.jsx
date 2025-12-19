@@ -136,7 +136,7 @@ const Trending = () => {
                                 alt={item.title}
                                 className='w-12 h-12 rounded-lg object-cover'
                             />
-                            <h3 className='text-white text-base font-medium leading-tight flex-1'>
+                            <h3 className='text-white text-base hover:underline cursor-pointer font-medium leading-tight flex-1'>
                                 {item.title}
                             </h3>
                         </div>
@@ -145,17 +145,17 @@ const Trending = () => {
                         <div className='flex flex-col gap-3 mb-4'>
                             {item.options.map((option, index) => (
                                 <div key={index} className='flex items-center justify-between'>
-                                    <span className='text-white text-sm'>
+                                    <span className='text-white hover:underline cursor-pointer text-md'>
                                         {option.date || option.name || option.range}
                                     </span>
                                     <div className='flex items-center gap-3'>
                                         <span className='text-white font-bold text-lg'>
                                             {option.percentage}%
                                         </span>
-                                        <button className='bg-green-600 hover:bg-green-700 text-white text-xs px-3 py-1 rounded'>
+                                        <button className='bg-[#325455] text-[#43c267] hover:bg-[#43c772] nav-bold cursor-pointer hover:text-white text-sm px-3 py-1 rounded'>
                                             {option.yesVotes}
                                         </button>
-                                        <button className='bg-red-600 hover:bg-red-700 text-white text-xs px-3 py-1 rounded'>
+                                        <button className='bg-[#4a3e4c] text-[#d33b4a] hover:bg-[#d33b5a] nav-bold cursor-pointer hover:text-white text-sm px-3 py-1 rounded'>
                                             {option.noVotes}
                                         </button>
                                     </div>
