@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { useOutletContext } from 'react-router-dom';
 import { TbSearch } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
@@ -7,7 +7,7 @@ import { CiBookmark } from "react-icons/ci";
 import { trendingLinks } from '../../lib/data';
 import { IoChevronBackOutline } from "react-icons/io5";
 const Trending = () => {
-
+    const [activeTab, setActiveTab] = useState('All');
     const scrollContainerRef = useRef(null);
 
     const scrollLeft = () => {
@@ -62,12 +62,13 @@ const Trending = () => {
                     </button>
                     <div
                         ref={scrollContainerRef}
-                        className="flex items-center gap-2 overflow-x-auto scrollbar-hide scroll-smooth flex-1"
+                        className="flex items-center gap-2  overflow-x-auto scrollbar-hide scroll-smooth flex-1"
                         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                     >
                         {trendingLinks.map((link, index) => (
-                            <button key={index} className={`px-4 py-2 rounded-full whitespace-nowrap
-                        ${theme === 'dark' ? ' text-white' : 'bg-[#f4f5f6] text-black'}`}>
+                            <button onClick={() => setActiveTab(link.name)}
+                                key={index} className={`px-4 py-1.5 cursor-pointer rounded-md whitespace-nowrap
+                         ${activeTab === link.name ? (theme === 'dark' ? 'bg-[#20415a] text-[#2c9cdb]' : 'text-gray-400') : 'text-gray-400 hover:text-white'}`}>
                                 {link.name}
                             </button>
                         ))}
