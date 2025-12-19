@@ -45,8 +45,14 @@ const Trending = () => {
                     <span className='absolute right-5 text-xl text-gray-400'><IoClose /></span>
                 </div>
 
-                    <PiSlidersHorizontal className='text-2xl' />
-                    <CiBookmark className='text-2xl ml-5 text-white' />
+                    <button className='flex px-2 py-2 rounded-lg hover:bg-[#2f3f50] cursor-pointer'>
+                        <PiSlidersHorizontal className='text-2xl' />   
+                    </button>
+
+                    <button className='flex px-2.5 py-2 ml-4 rounded-lg hover:bg-[#2f3f50] cursor-pointer'>
+                        <CiBookmark className='text-2xl  text-white' />
+                    </button>
+
 
                     <hr className={`border-r ${theme === 'dark' ? 'border-gray-600' : 'border-gray-300'}  h-7 ml-2  `} />
                 </div>
@@ -55,7 +61,7 @@ const Trending = () => {
                 <div className='flex ml-2 items-center gap-2 flex-1 overflow-hidden'>
                     <button
                         onClick={scrollLeft}
-                        className="p-1 hover:bg-gray-700 rounded-full transition-colors shrink-0"
+                        className="p-1 hover:text-white text-gray-400 cursor-pointer  transition-colors shrink-0"
                         aria-label="Scroll left"
                     >
                         <IoChevronBackOutline className="text-xl" />
@@ -75,7 +81,7 @@ const Trending = () => {
                     </div>
                     <button
                         onClick={scrollRight}
-                        className="p-1 hover:bg-gray-700 rounded-full transition-colors shrink-0"
+                        className="p-1 hover:text-white text-gray-400 cursor-pointer  transition-colors shrink-0"
                         aria-label="Scroll right"
                     >
                         <IoChevronBackOutline className='rotate-180 text-xl' />
