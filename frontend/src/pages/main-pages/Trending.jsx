@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useOutletContext } from 'react-router-dom';
 import { TbSearch } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
 import { PiSlidersHorizontal } from "react-icons/pi";
 import { CiBookmark } from "react-icons/ci";
+import { trendingLinks } from '../../lib/data';
+import { IoChevronBackOutline } from "react-icons/io5";
 const Trending = () => {
 
+    const scrollContainerRef = useRef(null);
 
+    const scrollLeft = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollBy({
+                left: -300,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    const scrollRight = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollBy({
+                left: 300,
+                behavior: 'smooth'
+            });
+        }
+    };
 
     const { theme, setTheme: toggleTheme } = useOutletContext();
     return (
@@ -32,6 +52,34 @@ const Trending = () => {
                 </div>
 
 
+                <div className='flex ml-2 items-center gap-2 flex-1 overflow-hidden'>
+                    <button
+                        onClick={scrollLeft}
+                        className="p-1 hover:bg-gray-700 rounded-full transition-colors shrink-0"
+                        aria-label="Scroll left"
+                    >
+                        <IoChevronBackOutline className="text-xl" />
+                    </button>
+                    <div
+                        ref={scrollContainerRef}
+                        className="flex items-center gap-2 overflow-x-auto scrollbar-hide scroll-smooth flex-1"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    >
+                        {trendingLinks.map((link, index) => (
+                            <button key={index} className={`px-4 py-2 rounded-full whitespace-nowrap
+                        ${theme === 'dark' ? ' text-white' : 'bg-[#f4f5f6] text-black'}`}>
+                                {link.name}
+                            </button>
+                        ))}
+                    </div>
+                    <button
+                        onClick={scrollRight}
+                        className="p-1 hover:bg-gray-700 rounded-full transition-colors shrink-0"
+                        aria-label="Scroll right"
+                    >
+                        <IoChevronBackOutline className='rotate-180 text-xl' />
+                    </button>
+                </div>
 
 
 
