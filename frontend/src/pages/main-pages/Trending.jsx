@@ -34,6 +34,36 @@ const Trending = () => {
     };
 
     const { theme, setTheme: toggleTheme } = useOutletContext();
+
+    // Function to calculate percentage from chance string
+    const getPercentageValue = (chance) => {
+        if (!chance) return 0;
+        // Remove % and < > symbols, then parse
+        const cleanValue = chance.replace(/[<%]/g, '');
+        return parseFloat(cleanValue) || 0;
+    };
+
+    // Function to create SVG arc path for semi-circle
+    const createArcPath = (percentage) => {
+        const radius = 35;
+        const centerX = 40;
+        const centerY = 40;
+        const startAngle = 180; // Start from left (180 degrees)
+        const endAngle = 180 + (180 * percentage / 100); // Calculate end angle based on percentage
+
+        const startRad = (startAngle * Math.PI) / 180;
+        const endRad = (endAngle * Math.PI) / 180;
+
+        const x1 = centerX + radius * Math.cos(startRad);
+        const y1 = centerY + radius * Math.sin(startRad);
+        const x2 = centerX + radius * Math.cos(endRad);
+        const y2 = centerY + radius * Math.sin(endRad);
+
+        const largeArcFlag = percentage > 50 ? 1 : 0;
+
+        return `M ${x1} ${y1} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${x2} ${y2}`;
+    };
+
     return (
         <div className={`flex  flex-col items-center pt-38 p-4  min-h-screen w-full 
         ${theme === 'dark' ? 'bg-[#1d2b3a]' : 'bg-[#ffffff]'}`}>
@@ -141,10 +171,37 @@ const Trending = () => {
                                     {item.title}
                                 </h3>
                                 {item.type === 'simple' && item.chance && (
-                                    <div className='flex flex-col items-end shrink-0'>
-                                        <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} font-bold text-2xl`}>{item.chance}</span>
-                                        <span className={` ${theme === 'dark' ? 'text-gray-400' : 'text-black'}
-                                              text-xs`}>chance</span>
+                                    <div className='flex flex-col items-center shrink-0 relative'>
+                                        {/* Semi-circle progress indicator */}
+                                        <div className='relative w-20 h-10 mb-1'>
+                                            <svg width="80" height="40" viewBox="0 0 80 40" className='overflow-visible'>
+                                                {/* Background arc */}
+                                                <path
+                                                    d={createArcPath(100)}
+                                                    fill="none"
+                                                    stroke="#e6e8ea"
+                                                    strokeWidth="6"
+                                                    strokeLinecap="round"
+                                                />
+                                                {/* Progress arc */}
+                                                <path
+                                                    d={createArcPath(getPercentageValue(item.chance))}
+                                                    fill="none"
+                                                    stroke={getPercentageValue(item.chance) > 50 ? '#43c267' : '#d33b4a'}
+                                                    strokeWidth="6"
+                                                    strokeLinecap="round"
+                                                />
+                                            </svg>
+                                            {/* Percentage text centered */}
+                                            <div className='absolute inset-0 top-6 pt-3 flex items-end justify-center pb-0'>
+                                                <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} font-semibold text-lg`}>
+                                                    {item.chance}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'} text-xs`}>
+                                            chance
+                                        </span>
                                     </div>
                                 )}
                             </div>
@@ -153,10 +210,10 @@ const Trending = () => {
                         {/* Simple card with just Yes/No buttons */}
                         {item.type === 'simple' ? (
                             <div className='flex gap-2 mb-4'>
-                                <button className='flex-1 bg-[#325455] text-[#43c267] hover:bg-[#43c772] nav-bold cursor-pointer hover:text-white text-lg py-3 rounded-lg font-semibold'>
+                                <button className={`flex-1 ${theme === 'dark' ? 'bg-[#325455] text-[#43c267]' : 'bg-[#e3f7ea] text-[#30a159]'}  hover:bg-[#43c772] nav-bold cursor-pointer hover:text-white text-lg py-2 rounded-lg font-medium`}>
                                     Yes
                                 </button>
-                                <button className='flex-1 bg-[#4a3e4c] text-[#d33b4a] hover:bg-[#d33b5a] nav-bold cursor-pointer hover:text-white text-lg py-3 rounded-lg font-semibold'>
+                                <button className={`flex-1 ${theme === 'dark' ? 'bg-[#4a3e4c] text-[#d33b4a]' : 'bg-[#fceded] text-[#e23979]'} hover:bg-[#d33b5a] nav-bold cursor-pointer hover:text-white text-lg py-2 rounded-lg font-medium`}>
                                     No
                                 </button>
                             </div>
