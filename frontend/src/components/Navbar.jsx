@@ -111,7 +111,7 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
             </div>
 
             {modalOpen && (
-                <div onMouseLeave={() => setModalOpen(false)} className={`flex flex-col z-50 justify-start items-start max-w-70 w-full ${themeMode === 'dark' ? 'bg-[#1d2b3a] border-gray-600' : 'bg-white border-gray-200'}
+                <div onMouseLeave={() => setModalOpen(false)} className={`flex flex-col overflow-y-auto z-50 justify-start items-start max-w-70 w-full ${themeMode === 'dark' ? 'bg-[#1d2b3a] border-gray-600' : 'bg-white border-gray-200'}
                  rounded-xl border  fixed top-16 right-5`}>
 
                     <div className={`flex flex-col ${themeMode === 'dark' ? 'text-gray-300' : 'text-black'} w-full p-2`}>
