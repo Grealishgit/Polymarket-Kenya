@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from ".././components/Navbar";
+import Footer from "../components/Footer";
 // import Sidebar from "./Sidebar";
 // import LoadingSpinner from "./LoadingSpinner";
 
@@ -120,7 +121,8 @@ const Layout = () => {
                             ${theme === "dark" ? "text-white bg-[#1d2b3a]" : "text-black bg-white"}`}>
 
                         <Navbar themeMode={themeMode} setTheme={toggleTheme} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-                        <Outlet context={{ theme, setTheme: toggleTheme, sidebarOpen, setSidebarOpen }} />
+                            <Outlet context={{ theme, setTheme: toggleTheme, sidebarOpen, setSidebarOpen }} />
+                            <Footer themeMode={themeMode} setTheme={toggleTheme} />
                     </main>
                 </div>
             )}

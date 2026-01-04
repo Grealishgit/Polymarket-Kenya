@@ -53,7 +53,7 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
 
 
                 <div className='flex items-center gap-4'>
-                    <button className={`${themeMode === 'dark' ? 'text-[#2c9cdb] hover:bg-gray-700/90 font-semibold' : 'text-[#1452f0] hover:bg-gray-100/80'}  rounded-lg  cursor-pointer items-center justify-center px-4 py-1.5  text-lg`}>
+                    <button className={`${themeMode === 'dark' ? 'text-[#2c9cdb] hover:bg-gray-700/90 font-semibold' : 'text-[#1452f0] hover:bg-gray-100/80'}  rounded-lg  cursor-pointer items-center justify-center px-4 py-1.5  text-md`}>
 
                         Log In
                     </button>
