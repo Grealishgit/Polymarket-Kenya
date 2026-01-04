@@ -10,6 +10,7 @@ import { HiMiniArrowTrendingUp } from "react-icons/hi2";
 
 
 const Trending = () => {
+    const { theme, setTheme: toggleTheme } = useOutletContext();
     const [activeTab, setActiveTab] = useState('All');
     const scrollContainerRef = useRef(null);
     const [searchInput, setSearchInput] = useState('');
@@ -33,7 +34,7 @@ const Trending = () => {
         }
     };
 
-    const { theme, setTheme: toggleTheme } = useOutletContext();
+
 
     // Function to calculate percentage from chance string
     const getPercentageValue = (chance) => {
