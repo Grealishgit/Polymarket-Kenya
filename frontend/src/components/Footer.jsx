@@ -1,5 +1,9 @@
 import React from 'react'
-
+import { MdOutlineMail } from "react-icons/md";
+import { FaXTwitter } from "react-icons/fa6"
+import { FaInstagram } from "react-icons/fa";
+import { FaDiscord } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa";
 
 const Footer = ({ themeMode, setTheme: toggleTheme }) => {
 
@@ -23,9 +27,20 @@ const Footer = ({ themeMode, setTheme: toggleTheme }) => {
                             ${themeMode === 'dark' ? 'hover:text-white' : 'hover:text-black'}`}>Press</a>
                     </ul>
                 </div>
-                <div>
 
+                <div className='flex items-center gap-4 mr-8 text-lg'>
+                    <MdOutlineMail className={`cursor-pointer  text-xl
+                            ${themeMode === 'dark' ? 'hover:text-white' : 'hover:text-black'}`} />
+                    <FaXTwitter className={`cursor-pointer 
+                            ${themeMode === 'dark' ? 'hover:text-white' : 'hover:text-black'}`} />
+                    <FaInstagram className={`cursor-pointer 
+                            ${themeMode === 'dark' ? 'hover:text-white' : 'hover:text-black'}`} />
+                    <FaDiscord className={`cursor-pointer 
+                            ${themeMode === 'dark' ? 'hover:text-white' : 'hover:text-black'}`} />
+                    <FaTiktok className={`cursor-pointer 
+                            ${themeMode === 'dark' ? 'hover:text-white' : 'hover:text-black'}`} />
                 </div>
+
             </div>
         </div>
     )
