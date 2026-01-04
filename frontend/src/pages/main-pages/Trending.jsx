@@ -65,7 +65,7 @@ const Trending = () => {
     };
 
     return (
-        <div className={`flex  flex-col items-center pt-38 p-4  min-h-screen w-full 
+        <div className={`flex  flex-col items-center pt-38 p-4 mb-12 min-h-screen w-full 
         ${theme === 'dark' ? 'bg-[#1d2b3a]' : 'bg-[#ffffff]'}`}>
             <nav className='flex justify-between items-center w-full'>
                 <div className='flex items-center gap-2'>
@@ -157,7 +157,7 @@ const Trending = () => {
                 {trendingData.map((item) => (
                     <div
                         key={item.id}
-                        className={`flex flex-col rounded-xl ${theme === 'dark' ? 'bg-[#2f3f50] border-gray-700' : 'bg-white border border-gray-200 '} p-4  transition-colors cursor-pointer`}
+                        className={`flex flex-col rounded-lg border ${theme === 'dark' ? 'bg-[#2f3f50] border-[#3d5266]' : 'bg-white border border-gray-200 '} p-4  transition-colors cursor-pointer`}
                     >
                         {/* Header with image, title, and optional chance */}
                         <div className='flex items-start gap-3 mb-4'>
@@ -242,7 +242,7 @@ const Trending = () => {
                         )}
 
                         {/* Footer with volume and actions */}
-                        <div className='flex items-center justify-between pt-3 border-t border-gray-700'>
+                        <div className='flex items-center justify-between pt-3 '>
                             <div className='flex items-center gap-2 text-gray-400 text-xs'>
                                 <span>{item.volume}</span>
                                 {item.author && (
