@@ -31,10 +31,10 @@ const Breaking = () => {
             <div className='w-full flex p-2'>
                 <div className='flex flex-col  w-[70%]'>
                     {/* Header */}
-                    <div className={`flex rounded-2xl ${theme === 'dark' ? 'bg-[#2f3f50]' : 'bg-[#e7edfd]'} flex-col  mb-6 gap-3 p-8`}>
-                        <p className={`${theme === 'dark' ? 'text-[#617788] font-semibold' : 'text-black'}`}>{formatDate(new Date())}</p>
-                        <p className={`text-3xl ${theme === 'dark' ? 'text-white' : 'text-black'}`}>Breaking News</p>
-                        <p className={`${theme === 'dark' ? 'text-[#617788] font-semibold' : 'text-black'} mt-5 mb-7`}>See the polymarkets that moved the most in the last 24 hours</p>
+                    <div className={`flex rounded-2xl  ${theme === 'dark' ? 'bg-[#2f3f50]' : 'bg-[#e7edfd]'} flex-col  mb-6 gap-3 p-8`}>
+                        <p className={`nav-bold ${theme === 'dark' ? 'text-[#617788] font-semibold' : 'text-[#91949f]'}`}>{formatDate(new Date())}</p>
+                        <p className={`nav-bold text-3xl ${theme === 'dark' ? 'text-white' : 'text-black'}`}>Breaking News</p>
+                        <p className={`nav-bold ${theme === 'dark' ? 'text-[#617788] font-semibold' : 'text-[#91949f]'} text-lg mt-5 mb-7`}>See the polymarkets that moved the most in the last 24 hours</p>
                     </div>
 
                     {/* sublinks */}
