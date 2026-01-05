@@ -31,7 +31,7 @@ const Breaking = () => {
             <div className='w-full flex p-2'>
                 <div className='flex flex-col  w-[70%]'>
                     {/* Header */}
-                    <div className='flex rounded-2xl flex-col bg-[#1f3f56] mb-6 gap-3 p-8'>
+                    <div className={`flex rounded-2xl ${theme === 'dark' ? 'bg-[#2f3f50]' : 'bg-[#e7edfd]'} flex-col  mb-6 gap-3 p-8`}>
                         <p className={`${theme === 'dark' ? 'text-[#617788] font-semibold' : 'text-black'}`}>{formatDate(new Date())}</p>
                         <p className={`text-3xl ${theme === 'dark' ? 'text-white' : 'text-black'}`}>Breaking News</p>
                         <p className={`${theme === 'dark' ? 'text-[#617788] font-semibold' : 'text-black'} mt-5 mb-7`}>See the polymarkets that moved the most in the last 24 hours</p>
@@ -64,14 +64,15 @@ const Breaking = () => {
                             <MdNotificationsActive size={40} className={`${theme === 'dark' ? 'text-[#6d7e92]' : 'text-black'}`} />
                             <div className='flex flex-col'>
                                 <h2 className={`text-lg font-medium mt-1 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>Get daily update</h2>
-                                <p className={`${theme === 'dark' ? 'text-[#6d7e92]' : 'text-black'}`}>We'll send you an email every day with what's moving on Polymarket</p>
+                                <p className={`${theme === 'dark' ? 'text-[#6d7e92]' : 'text-gray-400'}`}>We'll send you an email every day with what's moving on Polymarket</p>
                             </div>
                         </div>
 
                         <div className='flex flex-col gap-2 mt-8'>
                             <input type="text"
                                 placeholder='Enter your email'
-                                className={`w-full p-3 pl-4 ${theme === 'dark' ? 'bg-[#2f3f50]' : 'bg-white border border-gray-200'} rounded-lg  `} />
+                                className={`w-full p-3 pl-4 focus:outline-3 focus:outline-[#1452f0]
+                                 ${theme === 'dark' ? 'bg-[#2f3f50]' : 'bg-white border border-gray-200'} rounded-lg `} />
                             <button className={`w-full ${theme === 'dark' ? ' bg-[#2c9cdb]' : 'bg-[#1452f0]'} text-white p-3 rounded-lg `}>Get updates</button>
                         </div>
 
