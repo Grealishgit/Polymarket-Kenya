@@ -13,23 +13,23 @@ import { IoMdMoon } from "react-icons/io";
 import { mainLinks, navLinks } from '../lib/data'
 
 const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
-
     const [activeTab, setActiveTab] = useState('Trending');
     const [modalOpen, setModalOpen] = useState(false);
 
-
-
     return (
-        <div className={`w-full flex border-b  ${themeMode === 'dark' ? 'bg-[#1d2b3a] border-[#3d5266]' : 'bg-white border-gray-200'} fixed top-0 z-10  flex-col p-2`}>
+        <div className={`w-full flex border-b  fixed top-0 z-10  flex-col p-2
+        ${themeMode === 'dark' ? 'bg-[#1d2b3a] border-[#3d5266]' : 'bg-white border-gray-200'} `}>
             <nav className="w-full flex items-center h-16 justify-between p-4 text-white">
+
                 <div className='flex items-center gap-4'>
+
                     {themeMode === 'dark' ? (
                         <img src={logo} alt="" className='w-auto h-8' />
                     ) : (
                         <img src={logob} alt="" className='w-auto h-8' />
                     )}
-
                     <img src={flag} alt="" className='w-auto h-7 -rotate-4' />
+
                 </div>
 
                 <div className={`flex relative d  ${themeMode === 'dark' ? 'bg-[#2f3f50]' : 'bg-[#f4f5f6]'} items-center gap-2  px-2 w-150 py-1 rounded-lg`}>
