@@ -16,8 +16,75 @@ const Breaking = () => {
         { id: 6, title: 'Finance', href: '#' },
         { id: 7, title: 'Tech', href: '#' },
         { id: 8, title: 'Culture', href: '#' },
-
     ]
+
+    const newsLinks = [
+        {
+            id: 1,
+            rank: 1,
+            title: 'Maduro mugshot released by Monday?',
+            image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fmaduro-428d41b1ac.jpg&w=96&q=75',
+            percentage: 7,
+            change: -24,
+            trend: 'down'
+        },
+        {
+            id: 2,
+            rank: 2,
+            title: 'Will Supha Xayprasith-Mays win the 2026 Arkansas Governor Democratic primary election?',
+            image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Farkansas-governor-democratic-primary-winner-At6exE4JbPI-.png&w=96&q=75',
+            percentage: 25,
+            change: -20,
+            trend: 'down'
+        },
+        {
+            id: 3,
+            rank: 3,
+            title: 'Will María Corina Machado be the leader of Venezuela end of 2026?',
+            image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fvenezuela-leader-end-of-2026-lOfqbUxiKAsg.png&w=96&q=75',
+            percentage: 18,
+            change: -18,
+            trend: 'down'
+        },
+        {
+            id: 4,
+            rank: 4,
+            title: 'Venezuela election scheduled by March 31, 2026?',
+            image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fvenezuela-leader-end-of-2026-lOfqbUxiKAsg.png&w=96&q=75',
+            percentage: 22,
+            change: -17,
+            trend: 'down'
+        },
+        {
+            id: 5,
+            rank: 5,
+            title: 'Will the Logan Paul 1st Edition Charizard sale price be over 800k?',
+            image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Flogan-paul-break-1st-edition-charizard-sale-price-nEUsugaq3YGe.jpg&w=96&q=75',
+            percentage: 40,
+            change: -17,
+            trend: 'down'
+        },
+        {
+            id: 6,
+            rank: 6,
+            title: 'Nothing Ever Happens: Israel Edition',
+            image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fnothing-ever-happens-israel-edition-62-JFPwY_rXF.jpg&w=96&q=75',
+            percentage: 53,
+            change: -17,
+            trend: 'down'
+        },
+        {
+            id: 7,
+            rank: 7,
+            title: 'US strike on Colombia by January 31?',
+            image: 'https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2Fus-strike-on-colombia-by-january-31-P4KCpXnvCj4O.jpg&w=96&q=75',
+            percentage: 5,
+            change: -3,
+            trend: 'down'
+        }
+    ]
+
+
 
     // format date to 1 Jan, 2026
     const formatDate = (date) => {
@@ -54,6 +121,68 @@ const Breaking = () => {
                             >
                                 {link.title}
                             </button>
+                        ))}
+                    </div>
+
+                    {/* News here */}
+                    <div className='flex flex-col gap-3'>
+                        {newsLinks.map((news) => (
+                            <div
+                                key={news.id}
+                                className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer hover:border-gray-500 transition-colors
+                                    ${theme === 'dark' ? 'bg-[#2f3f50] border-gray-700' : 'bg-white border-gray-200'}`}
+                            >
+                                {/* Rank number */}
+                                <div className='flex items-center justify-center w-8'>
+                                    <span className={`text-xl font-bold ${theme === 'dark' ? 'text-gray-500' : 'text-gray-400'}`}>
+                                        {news.rank}
+                                    </span>
+                                </div>
+
+                                {/* Image and Title */}
+                                <div className='flex items-center gap-3 flex-1 mx-4'>
+                                    <img
+                                        src={news.image}
+                                        alt={news.title}
+                                        className='w-12 h-12 rounded-lg object-cover'
+                                    />
+                                    <div className='flex flex-col gap-1'>
+                                        <h3 className={`text-base font-medium hover:underline ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+                                            {news.title}
+                                        </h3>
+                                        <div className='flex items-center gap-2'>
+                                            <span className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+                                                {news.percentage}%
+                                            </span>
+                                            <span className='text-red-500 text-sm font-semibold flex items-center'>
+                                                <svg className='w-4 h-4 mr-1' fill='currentColor' viewBox='0 0 20 20'>
+                                                    <path fillRule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clipRule='evenodd' />
+                                                </svg>
+                                                {Math.abs(news.change)}%
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Trend chart placeholder */}
+                                <div className='flex items-center'>
+                                    <svg width="100" height="40" className='text-red-500'>
+                                        <polyline
+                                            points="0,10 20,8 40,15 60,12 80,20 100,25"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                        />
+                                    </svg>
+                                </div>
+
+                                {/* Arrow */}
+                                <div className='ml-4'>
+                                    <svg className={`w-6 h-6 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
+                                    </svg>
+                                </div>
+                            </div>
                         ))}
                     </div>
 
