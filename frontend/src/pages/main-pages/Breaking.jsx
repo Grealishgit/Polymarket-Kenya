@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useOutletContext } from 'react-router-dom';
+import { MdNotificationsActive } from "react-icons/md";
 
 const Breaking = () => {
     const { theme, setTheme: toggleTheme } = useOutletContext();
@@ -27,7 +28,7 @@ const Breaking = () => {
     return (
         <div className={`flex  flex-col items-center pt-38 p-4 mb-12 min-h-screen w-full 
         ${theme === 'dark' ? 'bg-[#1d2b3a]' : 'bg-[#ffffff]'}`}>
-            <div className='w-full flex'>
+            <div className='w-full flex p-2'>
                 <div className='flex flex-col  w-[70%]'>
                     {/* Header */}
                     <div className='flex rounded-2xl flex-col bg-[#1f3f56] mb-6 gap-3 p-8'>
@@ -58,7 +59,20 @@ const Breaking = () => {
 
                 </div>
                 <div className='flex flex-col w-[30%] pl-4'>
+                    <div className={`flex flex-col p-4 border  ${theme === 'dark' ? 'border-[#3d5266]' : ''} fixed  rounded-2xl`}>
+                        <div className='flex flex-row gap-2'>
+                            <MdNotificationsActive size={40} className={`${theme === 'dark' ? 'text-[#6d7e92]' : 'text-black'}`} />
+                            <div className='flex flex-col'>
+                                <h2 className={`text-lg font-medium mt-1 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>Get daily update</h2>
+                                <p className={`${theme === 'dark' ? 'text-[#6d7e92]' : 'text-black'}`}>We'll send you an email every day with what's moving on Polymarket</p>
+                            </div>
+                        </div>
 
+                        <div className='flex flex-col mt-8'>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
