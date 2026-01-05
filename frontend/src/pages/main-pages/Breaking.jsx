@@ -68,8 +68,11 @@ const Breaking = () => {
                             </div>
                         </div>
 
-                        <div className='flex flex-col mt-8'>
-
+                        <div className='flex flex-col gap-2 mt-8'>
+                            <input type="text"
+                                placeholder='Enter your email'
+                                className={`w-full p-3 pl-4 ${theme === 'dark' ? 'bg-[#2f3f50]' : 'bg-white border border-gray-200'} rounded-lg  `} />
+                            <button className={`w-full ${theme === 'dark' ? ' bg-[#2c9cdb]' : 'bg-[#1452f0]'} text-white p-3 rounded-lg `}>Get updates</button>
                         </div>
 
                     </div>
