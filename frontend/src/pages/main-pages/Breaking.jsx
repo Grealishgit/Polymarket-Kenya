@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useOutletContext } from 'react-router-dom';
 import { MdNotificationsActive } from "react-icons/md";
+import { CgArrowBottomRight } from "react-icons/cg";
 
 const Breaking = () => {
     const { theme, setTheme: toggleTheme } = useOutletContext();
@@ -178,9 +179,7 @@ const Breaking = () => {
 
                                 {/* Arrow */}
                                 <div className='ml-4'>
-                                    <svg className={`w-6 h-6 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
-                                    </svg>
+                                    <CgArrowBottomRight />
                                 </div>
                             </div>
                         ))}
