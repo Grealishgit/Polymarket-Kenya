@@ -155,10 +155,8 @@ const Breaking = () => {
                                             <span className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-red-500'}`}>
                                                 {news.percentage}%
                                             </span>
-                                            <span className='text-red-500 text-sm font-semibold flex items-center'>
-                                                <svg className='w-4 h-4 mr-1' fill='currentColor' viewBox='0 0 20 20'>
-                                                    <path fillRule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clipRule='evenodd' />
-                                                </svg>
+                                            <span className='text-[#e23939] text-md nav-bold mr-3 flex items-center'>
+                                                <CgArrowBottomRight className='text-[#e23939]' />
                                                 {Math.abs(news.change)}%
                                             </span>
                                         </div>
@@ -167,7 +165,7 @@ const Breaking = () => {
 
                                 {/* Trend chart placeholder */}
                                 <div className='flex items-center'>
-                                    <svg width="100" height="40" className='text-red-500'>
+                                    <svg width="100" height="40" className='text-[#e23939]'>
                                         <polyline
                                             points="0,10 20,8 40,15 60,12 80,20 100,25"
                                             fill="none"
@@ -179,7 +177,9 @@ const Breaking = () => {
 
                                 {/* Arrow */}
                                 <div className='ml-4'>
-                                    <CgArrowBottomRight />
+                                    <svg className={`w-6 h-6 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
+                                    </svg>
                                 </div>
                             </div>
                         ))}
