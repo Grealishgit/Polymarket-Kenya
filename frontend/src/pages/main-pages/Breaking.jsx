@@ -129,12 +129,12 @@ const Breaking = () => {
                         {newsLinks.map((news) => (
                             <div
                                 key={news.id}
-                                className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer hover:border-gray-500 transition-colors
-                                    ${theme === 'dark' ? 'bg-[#2f3f50] border-gray-700' : 'bg-white border-gray-200'}`}
+                                className={`flex items-center justify-between p-6 border-b rounded-lg cursor-pointer transition-colors
+                                    ${theme === 'dark' ? 'bg-[#f4f5f6] border-gray-700' : 'bg-white border-gray-200 hover:bg-[#f4f5f6] '}`}
                             >
                                 {/* Rank number */}
                                 <div className='flex items-center justify-center w-8'>
-                                    <span className={`text-xl font-bold ${theme === 'dark' ? 'text-gray-500' : 'text-gray-400'}`}>
+                                    <span className={`text-xl  ${theme === 'dark' ? 'text-gray-500' : 'text-gray-400'}`}>
                                         {news.rank}
                                     </span>
                                 </div>
@@ -147,11 +147,11 @@ const Breaking = () => {
                                         className='w-12 h-12 rounded-lg object-cover'
                                     />
                                     <div className='flex flex-col gap-1'>
-                                        <h3 className={`text-base font-medium hover:underline ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+                                        <h3 className={`text-lg nav-bold hover:underline ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
                                             {news.title}
                                         </h3>
                                         <div className='flex items-center gap-2'>
-                                            <span className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+                                            <span className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-red-500'}`}>
                                                 {news.percentage}%
                                             </span>
                                             <span className='text-red-500 text-sm font-semibold flex items-center'>
