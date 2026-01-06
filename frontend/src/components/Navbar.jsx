@@ -5,6 +5,7 @@ import flag from '../assets/images/flag.png'
 import { MdMenu as IonsMdMenu } from 'react-icons/md'
 import { GoSearch } from "react-icons/go";
 import { AiFillInfoCircle } from "react-icons/ai";
+import { FaGoogle } from "react-icons/fa6";
 
 import { FaTrophy } from "react-icons/fa";
 import { BiSolidDollarCircle } from "react-icons/bi";
@@ -15,7 +16,7 @@ import { mainLinks, navLinks } from '../lib/data'
 const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
     const [activeTab, setActiveTab] = useState('Trending');
     const [modalOpen, setModalOpen] = useState(false);
-
+    const [showLoginModal, setShowLoginModal] = useState(true);
 
     return (
         <div className={`w-full flex border-b  fixed top-0 z-10  flex-col p-2
@@ -171,6 +172,26 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
                      font-medium nav-bold  rounded-lg cursor-pointer`}>
                             Terms Of Use
                         </button>
+
+                    </div>
+                </div>
+            )}
+
+            {showLoginModal && (
+                <div className='fixed inset-0 bg-black/60 bg-opacity-50 flex items-center justify-center z-50'>
+                    <div className={`rounded-lg p-6 w-110
+                     ${themeMode === 'dark' ? 'bg-[#1d2b3a] text-white' : 'bg-white text-black'}`}>
+                        <h2 className='text-2xl text-center font-bold mb-4'>Welcome to Ploymarket</h2>
+
+                        <button className={`w-full py-4 flex items-center justify-center gap-2 px-5 text-center mb-4
+                        ${themeMode === 'dark' ? 'bg-[#2c9cdb] hover:bg-[#1a8acb]' : 'bg-[#1452f0] hover:bg-[#0d3ebf]'}
+                     font-medium nav-bold  rounded-lg cursor-pointer text-white`}>
+                            <FaGoogle />
+                            Continue with Google
+                        </button>
+
+                        {/* Or separator here */}
+
 
                     </div>
                 </div>
