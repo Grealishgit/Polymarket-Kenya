@@ -179,7 +179,7 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
 
             {showLoginModal && (
                 <div className='fixed inset-0 bg-black/60 bg-opacity-50 flex items-center justify-center z-50'>
-                    <div className={`rounded-lg p-6 w-110
+                    <div className={`rounded-lg p-6 w-120
                      ${themeMode === 'dark' ? 'bg-[#1d2b3a] text-white' : 'bg-white text-black'}`}>
                         <h2 className='text-2xl text-center font-bold mb-4'>Welcome to Ploymarket</h2>
 
@@ -191,7 +191,33 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
                         </button>
 
                         {/* Or separator here */}
+                        <div className='flex items-center gap-4 justify-between mt-4'>
+                            <div className={`border-b ${themeMode === 'dark' ? 'border-gray-600' : 'border-gray-300'} w-full `} />
+                            <h2 className={`text-center nav-bold ${themeMode === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>OR</h2>
+                            <div className={`border-b ${themeMode === 'dark' ? 'border-gray-600' : 'border-gray-300'} w-full `} />
+                        </div>
 
+                        <div className='flex relative flex-col gap-4 mt-4'>
+                            <input type="email"
+                                placeholder='Email address'
+                                className={`p-4 rounded-lg border ${themeMode === 'dark' ? 'border-gray-600 bg-[#1d2b3a] text-white' : 'border-gray-300 bg-white text-black'}`} />
+                            <button className={`absolute p-2 px-3 rounded-md ${themeMode === 'dark' ? 'bg-[#2c9cdb]' : ''} top-2 right-2`}>Continue</button>
+                        </div>
+
+                        <div className='flex items-center justify-center gap-4'>
+                            <button>
+
+                            </button>
+                            <button>
+
+                            </button>
+                            <button>
+
+                            </button>
+                            <button>
+
+                            </button>
+                        </div>
 
                     </div>
                 </div>
