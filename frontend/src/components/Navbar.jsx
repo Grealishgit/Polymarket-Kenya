@@ -79,11 +79,13 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
 
 
                 <div className='flex items-center gap-4'>
-                    <button className={`${themeMode === 'dark' ? 'text-[#2c9cdb] hover:bg-gray-700/90 font-semibold' : 'text-[#1452f0] hover:bg-gray-100/80'}  rounded-lg  cursor-pointer items-center justify-center px-4 py-1.5  text-md`}>
+                    <button onClick={() => setShowLoginModal(true)}
+                        className={`${themeMode === 'dark' ? 'text-[#2c9cdb] hover:bg-gray-700/90 font-semibold' : 'text-[#1452f0] hover:bg-gray-100/80'}  rounded-lg  cursor-pointer items-center justify-center px-4 py-1.5  text-md`}>
 
                         Log In
                     </button>
-                    <button className={`px-4 font-medium nav-bold text-white  py-2 rounded-md 
+                    <button onClick={() => setShowLoginModal(true)}
+                        className={`px-4 font-medium nav-bold text-white  py-2 rounded-md 
                         ${themeMode === 'dark' ? 'bg-[#2c9cdb]' : 'bg-[#1452f0]'} hover:opacity-90 cursor-pointer`}>
                         Sign Up
                     </button>
@@ -202,8 +204,10 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
             )}
 
             {showLoginModal && (
-                <div className='fixed inset-0 bg-black/60 bg-opacity-50 left-0 right-0 flex items-center justify-center z-50'>
-                    <div className={`rounded-lg p-6 w-120
+                <div onClick={() => setShowLoginModal(false)}
+                    className='fixed inset-0 bg-black/60 bg-opacity-50 left-0 right-0 flex items-center justify-center z-50'>
+                    <div onClick={(e) => e.stopPropagation()}
+                        className={`rounded-lg p-6 w-120
                      ${themeMode === 'dark' ? 'bg-[#1d2b3a] text-white' : 'bg-white text-black'}`}>
                         <h2 className='text-2xl text-center font-bold mb-4'>Welcome to Ploymarket</h2>
 
