@@ -12,11 +12,16 @@ import { BiSolidDollarCircle } from "react-icons/bi";
 import { TbPlugConnected } from "react-icons/tb";
 import { IoMdMoon } from "react-icons/io";
 import { mainLinks, navLinks } from '../lib/data'
+import logo1 from '../assets/images/logo1.svg'
+import logo2 from '../assets/images/logo2.svg'
+import logo3 from '../assets/images/logo3.svg'
+import logo4 from '../assets/images/logo4.svg'
+import logo5 from '../assets/images/logo5.svg'
 
 const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
     const [activeTab, setActiveTab] = useState('Trending');
     const [modalOpen, setModalOpen] = useState(false);
-    const [showLoginModal, setShowLoginModal] = useState(true);
+    const [showLoginModal, setShowLoginModal] = useState(false);
 
     return (
         <div className={`w-full flex border-b  fixed top-0 z-10  flex-col p-2
@@ -204,19 +209,31 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
                             <button className={`absolute p-2 px-3 rounded-md ${themeMode === 'dark' ? 'bg-[#2c9cdb]' : ''} top-2 right-2`}>Continue</button>
                         </div>
 
-                        <div className='flex items-center justify-center gap-4'>
-                            <button>
-
+                        <div className='flex items-center justify-center mt-4 w-full gap-4'>
+                            <button className={`flex p-4 w-full items-center justify-center rounded-lg 
+                                ${themeMode === 'dark' ? 'bg-[#3d5266]' : ''} `}>
+                                <img src={logo5} alt="" />
                             </button>
-                            <button>
 
+                            <button className={`flex p-4 w-full items-center justify-center rounded-lg 
+                                ${themeMode === 'dark' ? 'bg-[#3d5266]' : ''} `}>
+                                <img src={logo2} alt="" />
                             </button>
-                            <button>
 
+                            <button className={`flex p-4 w-full items-center justify-center  rounded-lg
+                                 ${themeMode === 'dark' ? 'bg-[#3d5266]' : ''} `}>
+                                <img src={logo4} alt="" className="rounded-lg" />
                             </button>
-                            <button>
 
+                            <button className={`flex p-3 w-full items-center justify-center  rounded-lg 
+                                ${themeMode === 'dark' ? 'bg-[#3d5266]' : ''} `}>
+                                <img src={logo1} alt="" />
                             </button>
+                        </div>
+
+                        <div className='flex items-center mt-3 justify-center gap-2'>
+                            <p className={`${themeMode === 'dark' ? 'text-gray-400' : ''}`}>Terms •</p>
+                            <p className={`${themeMode === 'dark' ? 'text-gray-400' : ''}`}>Privacy</p>
                         </div>
 
                     </div>
