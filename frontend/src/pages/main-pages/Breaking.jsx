@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useOutletContext } from 'react-router-dom';
 import { MdNotificationsActive } from "react-icons/md";
 import { CgArrowBottomRight } from "react-icons/cg";
+import { FaXTwitter } from 'react-icons/fa6';
 
 const Breaking = () => {
     const { theme, setTheme: toggleTheme } = useOutletContext();
@@ -186,8 +187,9 @@ const Breaking = () => {
                     </div>
 
                 </div>
-                <div className='flex flex-col w-[30%] pr-4'>
-                    <div className={`flex flex-col p-4 border  ${theme === 'dark' ? 'border-[#3d5266]' : 'border-[#e6e8ea] shadow-xl shadow-[#e6e8ea] '} fixed  rounded-2xl`}>
+                <div className='flex fixed flex-col right-0 w-[30%] pr-4'>
+
+                    <div className={`flex flex-col p-4 border  ${theme === 'dark' ? 'border-[#3d5266]' : 'border-[#e6e8ea] shadow-xl shadow-[#e6e8ea] '}   rounded-2xl`}>
                         <div className='flex flex-row gap-2'>
                             <MdNotificationsActive size={40} className={`${theme === 'dark' ? 'text-[#6d7e92]' : 'text-[#77808d]'}`} />
                             <div className='flex flex-col'>
@@ -205,6 +207,18 @@ const Breaking = () => {
                         </div>
 
                     </div>
+
+                    {/* Live from Twitter */}
+                    <div className='flex  flex-col mt-7 w-full'>
+                        <div className='flex border-b border-gray-600 justify-between w-full '>
+                            <h2 className={``}>Live from @ploymarket</h2>
+                            <button className={`flex rounded-full mb-3 nav-bold text-sm p-1 px-4 py-2 ${theme === 'dark' ? 'bg-white text-black' : 'bg-black text-white'} items-center gap-2`}>
+                                Follow on
+                                <FaXTwitter className={`cursor-pointer text-sm  ${theme === 'dark' ? 'hover:text-white' : 'hover:text-black'}`} />
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
