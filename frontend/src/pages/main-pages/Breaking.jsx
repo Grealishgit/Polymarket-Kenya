@@ -131,7 +131,7 @@ const Breaking = () => {
                             <div
                                 key={news.id}
                                 className={`flex items-center justify-between p-6 border-b rounded-lg cursor-pointer transition-colors
-                                    ${theme === 'dark' ? 'bg-[#f4f5f6] border-gray-700' : 'bg-white border-gray-200 hover:bg-[#f4f5f6] '}`}
+                                    ${theme === 'dark' ? 'bg-[#1d2b3a] border-gray-700 hover:bg-[#2f3f50]' : 'bg-white border-gray-200 hover:bg-[#f4f5f6] '}`}
                             >
                                 {/* Rank number */}
                                 <div className='flex items-center justify-center w-8'>
