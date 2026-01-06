@@ -87,6 +87,38 @@ const Breaking = () => {
     ]
 
 
+    const twitterLinks = [
+        {
+            id: 1,
+            title: 'Breaking news',
+            tweet: 'President Trump warns if Republicans do  ot win midterms, he will be impeached',
+            image: '',
+            time: '6 Jan, 20:12'
+        },
+        {
+            id: 2,
+            title: 'Polymarket news',
+            tweet: 'Elon Musk announces new Tesla model to be released in 2026',
+            image: '',
+            time: '6 Jan, 16:20'
+        },
+        {
+            id: 3,
+            title: 'Breaking news',
+            tweet: 'New study reveals the benefits of a plant-based diet',
+            image: 'https://pbs.twimg.com/media/G96CB5lWMAALfqw.jpg',
+            time: '6 Jan, 18:31'
+        },
+        {
+            id: 4,
+            title: 'Polymarket news',
+            tweet: 'NASA announces plans for manned mission to Mars by 2030',
+            image: 'https://pbs.twimg.com/media/G972SbfWIAAwtvw.jpg',
+            time: '6 Jan, 14:22'
+        }
+    ]
+
+
 
     // format date to 1 Jan, 2026
     const formatDate = (date) => {
@@ -216,6 +248,10 @@ const Breaking = () => {
                                 Follow on
                                 <FaXTwitter className={`cursor-pointer text-sm  ${theme === 'dark' ? 'hover:text-white' : 'hover:text-black'}`} />
                             </button>
+                        </div>
+
+                        <div>
+
                         </div>
                     </div>
 
