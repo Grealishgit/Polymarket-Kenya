@@ -21,7 +21,7 @@ import logo5 from '../assets/images/logo5.svg'
 const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
     const [activeTab, setActiveTab] = useState('Trending');
     const [modalOpen, setModalOpen] = useState(false);
-    const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showLoginModal, setShowLoginModal] = useState(true);
 
     return (
         <div className={`w-full flex border-b  fixed top-0 z-10  flex-col p-2
