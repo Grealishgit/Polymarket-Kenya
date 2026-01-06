@@ -243,15 +243,28 @@ const Breaking = () => {
                     {/* Live from Twitter */}
                     <div className='flex  flex-col mt-7 w-full'>
                         <div className='flex border-b border-gray-600 justify-between w-full '>
-                            <h2 className={``}>Live from @ploymarket</h2>
+                            <h2 className={`${theme === 'dark' ? 'text-white' : 'text-[#77808d]'}`}>Live from @ploymarket</h2>
                             <button className={`flex rounded-full mb-3 nav-bold text-sm p-1 px-4 py-2 ${theme === 'dark' ? 'bg-white text-black' : 'bg-black text-white'} items-center gap-2`}>
                                 Follow on
                                 <FaXTwitter className={`cursor-pointer text-sm  ${theme === 'dark' ? 'hover:text-white' : 'hover:text-black'}`} />
                             </button>
                         </div>
 
-                        <div>
+                        <div className='flex flex-col overflow-y-scroll mt-3 no-scrollview w-full'>
+                            {twitterLinks.map((tweet) => (
+                                <div key={tweet.id} className={`flex flex-col gap-2 mb-4 p-2 rounded-lg cursor-pointer
+                                    ${theme === 'dark' ? 'bg-[#1d2b3a] hover:bg-[#2f3f50]' : ' bg-[#ffffff] hover:bg-[#f4f5f6]'}`}>
+                                    <div className='flex items-center justify-between w-full'>
+                                        <p className={` ${theme === 'dark' ? 'text-[#405062]' : 'text-gray-400'}`}>{tweet.title}</p>
+                                        <p className={` ${theme === 'dark' ? 'text-[#405062]' : 'text-gray-400'}`}>{tweet.time}</p>
+                                    </div>
 
+                                    <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-500'}`}>{tweet.tweet}</p>
+                                    {tweet.image && (
+                                        <img src={tweet.image} alt="Tweet image" className="rounded-lg" />
+                                    )}
+                                </div>
+                            ))}
                         </div>
                     </div>
 
