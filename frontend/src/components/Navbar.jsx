@@ -16,6 +16,7 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
     const [activeTab, setActiveTab] = useState('Trending');
     const [modalOpen, setModalOpen] = useState(false);
 
+
     return (
         <div className={`w-full flex border-b  fixed top-0 z-10  flex-col p-2
         ${themeMode === 'dark' ? 'bg-[#1d2b3a] border-[#3d5266]' : 'bg-white border-gray-200'} `}>

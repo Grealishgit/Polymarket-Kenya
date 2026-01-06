@@ -165,7 +165,7 @@ const Breaking = () => {
 
                                 {/* Trend chart placeholder */}
                                 <div className='flex items-center'>
-                                    <svg width="100" height="40" className='text-[#e23939]'>
+                                    <svg width="80" height="20" className='text-[#e23939]'>
                                         <polyline
                                             points="0,10 20,8 40,15 60,12 80,20 100,25"
                                             fill="none"
@@ -177,7 +177,7 @@ const Breaking = () => {
 
                                 {/* Arrow */}
                                 <div className='ml-4'>
-                                    <svg className={`w-6 h-6 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                    <svg className={`w-4 h-4 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                                         <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
                                     </svg>
                                 </div>
