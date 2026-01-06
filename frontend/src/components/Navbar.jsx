@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import logo from '../assets/images/logo-white.svg'
 import logob from '../assets/images/logo-black.svg'
 import flag from '../assets/images/flag.png'
@@ -9,7 +9,7 @@ import { FaGoogle } from "react-icons/fa6";
 
 import { FaTrophy } from "react-icons/fa";
 import { BiSolidDollarCircle } from "react-icons/bi";
-import { TbPlugConnected } from "react-icons/tb";
+import { TbPlugConnected, TbRuler2 } from "react-icons/tb";
 import { IoMdMoon } from "react-icons/io";
 import { mainLinks, navLinks } from '../lib/data'
 import logo1 from '../assets/images/logo1.svg'
@@ -21,7 +21,26 @@ import logo5 from '../assets/images/logo5.svg'
 const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
     const [activeTab, setActiveTab] = useState('Trending');
     const [modalOpen, setModalOpen] = useState(false);
-    const [showLoginModal, setShowLoginModal] = useState(true);
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    const [email, setEmail] = useState('');
+    const [activeButton, setActiveButton] = useState(false);
+
+    // Check email validity whenever email changes
+    useEffect(() => {
+        if (email.includes('@') && email.includes('.')) {
+            setActiveButton(true);
+        } else {
+            setActiveButton(false);
+        }
+    }, [email]);
+
+    const handleSubmit = () => {
+        // Handle form submission here
+        if (activeButton) {
+            console.log('Email submitted:', email);
+            // Add your submission logic here
+        }
+    }
 
     return (
         <div className={`w-full flex border-b  fixed top-0 z-10  flex-col p-2
@@ -183,7 +202,7 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
             )}
 
             {showLoginModal && (
-                <div className='fixed inset-0 bg-black/60 bg-opacity-50 flex items-center justify-center z-50'>
+                <div className='fixed inset-0 bg-black/60 bg-opacity-50 left-0 right-0 flex items-center justify-center z-50'>
                     <div className={`rounded-lg p-6 w-120
                      ${themeMode === 'dark' ? 'bg-[#1d2b3a] text-white' : 'bg-white text-black'}`}>
                         <h2 className='text-2xl text-center font-bold mb-4'>Welcome to Ploymarket</h2>
@@ -198,42 +217,56 @@ const Navbar = ({ themeMode, setTheme: toggleTheme }) => {
                         {/* Or separator here */}
                         <div className='flex items-center gap-4 justify-between mt-4'>
                             <div className={`border-b ${themeMode === 'dark' ? 'border-gray-600' : 'border-gray-300'} w-full `} />
-                            <h2 className={`text-center nav-bold ${themeMode === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>OR</h2>
+                            <h2 className={`text-center nav-bold ${themeMode === 'dark' ? 'text-gray-400' : 'text-[#77808d]'}`}>OR</h2>
                             <div className={`border-b ${themeMode === 'dark' ? 'border-gray-600' : 'border-gray-300'} w-full `} />
                         </div>
 
                         <div className='flex relative flex-col gap-4 mt-4'>
                             <input type="email"
+                                required
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                 placeholder='Email address'
-                                className={`p-4 rounded-lg border ${themeMode === 'dark' ? 'border-gray-600 bg-[#1d2b3a] text-white' : 'border-gray-300 bg-white text-black'}`} />
-                            <button className={`absolute p-2 px-3 rounded-md ${themeMode === 'dark' ? 'bg-[#2c9cdb]' : ''} top-2 right-2`}>Continue</button>
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className={`p-4 rounded-lg border transition-all focus:outline-none focus:ring-1 focus:ring-[#1452f0]
+                                ${themeMode === 'dark' ? 'border-gray-600 bg-[#1d2b3a] text-white placeholder:text-gray-400' : 'border-gray-300 bg-white text-black placeholder:text-gray-400'}`} />
+                            <button
+                                onClick={handleSubmit}
+                                disabled={!activeButton}
+                                className={`absolute p-2 px-3 text-white rounded-md top-2 right-2 transition-colors
+                                ${activeButton
+                                        ? (themeMode === 'dark' ? 'bg-[#2c9cdb] hover:bg-[#1a8acb]' : 'bg-[#1452f0] hover:bg-[#0d3ebf]')
+                                        : (themeMode === 'dark' ? 'bg-[#4a5a6a] cursor-not-allowed' : 'bg-[#89a8f7] cursor-not-allowed')
+                                    }`}>
+                                Continue
+                            </button>
                         </div>
 
                         <div className='flex items-center justify-center mt-4 w-full gap-4'>
-                            <button className={`flex p-4 w-full items-center justify-center rounded-lg 
-                                ${themeMode === 'dark' ? 'bg-[#3d5266]' : ''} `}>
+                            <button className={`flex p-3.5 w-full items-center justify-center rounded-lg 
+                                ${themeMode === 'dark' ? 'bg-[#3d5266]' : 'border border-gray-200'} `}>
                                 <img src={logo5} alt="" />
                             </button>
 
-                            <button className={`flex p-4 w-full items-center justify-center rounded-lg 
-                                ${themeMode === 'dark' ? 'bg-[#3d5266]' : ''} `}>
+                            <button className={`flex p-3.5 w-full items-center justify-center rounded-lg 
+                                ${themeMode === 'dark' ? 'bg-[#3d5266]' : 'border border-gray-200'} `}>
                                 <img src={logo2} alt="" />
                             </button>
 
-                            <button className={`flex p-4 w-full items-center justify-center  rounded-lg
-                                 ${themeMode === 'dark' ? 'bg-[#3d5266]' : ''} `}>
+                            <button className={`flex p-3.5 w-full items-center justify-center  rounded-lg
+                                 ${themeMode === 'dark' ? 'bg-[#3d5266]' : 'border border-gray-200'} `}>
                                 <img src={logo4} alt="" className="rounded-lg" />
                             </button>
 
-                            <button className={`flex p-3 w-full items-center justify-center  rounded-lg 
-                                ${themeMode === 'dark' ? 'bg-[#3d5266]' : ''} `}>
+                            <button className={`flex p-2.5 w-full items-center justify-center  rounded-lg 
+                                ${themeMode === 'dark' ? 'bg-[#3d5266]' : 'border border-gray-200'} `}>
                                 <img src={logo1} alt="" />
                             </button>
                         </div>
 
                         <div className='flex items-center mt-3 justify-center gap-2'>
-                            <p className={`${themeMode === 'dark' ? 'text-gray-400' : ''}`}>Terms •</p>
-                            <p className={`${themeMode === 'dark' ? 'text-gray-400' : ''}`}>Privacy</p>
+                            <p className={`text-sm nav-bold ${themeMode === 'dark' ? 'text-gray-400' : 'text-[#7b809f]'}`}>Terms •</p>
+                            <p className={`text-sm nav-bold ${themeMode === 'dark' ? 'text-gray-400' : 'text-[#7b809f]'}`}>Privacy</p>
                         </div>
 
                     </div>
