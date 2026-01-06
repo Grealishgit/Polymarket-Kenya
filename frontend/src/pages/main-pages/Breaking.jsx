@@ -233,8 +233,8 @@ const Breaking = () => {
                         <div className='flex flex-col gap-2 mt-8'>
                             <input type="text"
                                 placeholder='Enter your email'
-                                className={`w-full p-3 pl-4 focus:outline-3 focus:outline-[#1452f0]
-                                 ${theme === 'dark' ? 'bg-[#2f3f50]' : 'bg-white border border-gray-200'} rounded-lg `} />
+                                className={`w-full p-3 pl-4 focus:outline-3 
+                                 ${theme === 'dark' ? 'bg-[#2f3f50] focus:outline-[#2c9cdb]' : 'bg-white border border-gray-200 focus:outline-[#1452f0]'} rounded-lg `} />
                             <button className={`w-full ${theme === 'dark' ? ' bg-[#2c9cdb]' : 'bg-[#1452f0]'} text-white p-3 rounded-lg `}>Get updates</button>
                         </div>
 
@@ -242,7 +242,7 @@ const Breaking = () => {
 
                     {/* Live from Twitter */}
                     <div className='flex  flex-col mt-7 w-full'>
-                        <div className='flex border-b border-gray-600 justify-between w-full '>
+                        <div className={`flex border-b ${theme === 'dark' ? 'border-gray-600' : 'border-gray-200'} justify-between w-full`} >
                             <h2 className={`${theme === 'dark' ? 'text-white' : 'text-[#77808d]'}`}>Live from @ploymarket</h2>
                             <button className={`flex rounded-full mb-3 nav-bold text-sm p-1 px-4 py-2 ${theme === 'dark' ? 'bg-white text-black' : 'bg-black text-white'} items-center gap-2`}>
                                 Follow on
@@ -250,7 +250,7 @@ const Breaking = () => {
                             </button>
                         </div>
 
-                        <div className='flex flex-col overflow-y-scroll mt-3 no-scrollview w-full'>
+                        <div className='flex flex-col overflow-y-auto mt-3 no-scrollview w-full max-h-96'>
                             {twitterLinks.map((tweet) => (
                                 <div key={tweet.id} className={`flex flex-col gap-2 mb-4 p-2 rounded-lg cursor-pointer
                                     ${theme === 'dark' ? 'bg-[#1d2b3a] hover:bg-[#2f3f50]' : ' bg-[#ffffff] hover:bg-[#f4f5f6]'}`}>
