@@ -40,8 +40,12 @@ const New = () => {
         <div className={`flex  flex-col items-center pt-38 p-4 mb-12 min-h-screen w-full 
         ${theme === 'dark' ? 'bg-[#1d2b3a]' : 'bg-[#ffffff]'}`}>
             <nav className='flex items-center gap-3 w-full'>
-                <div>
-
+                <div className='flex items-center gap-2 w-full'>
+                    {subLinks.map((link) => (
+                        <button key={link.id} className='px-3 py-1 rounded-lg hover:bg-[#2f3f50] cursor-pointer'>
+                            {link.name}
+                        </button>
+                    ))}
                 </div>
 
 
