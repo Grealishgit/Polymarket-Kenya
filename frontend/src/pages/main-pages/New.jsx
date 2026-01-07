@@ -1,5 +1,8 @@
 import React from 'react'
 import { useOutletContext } from 'react-router-dom';
+import { PiSlidersHorizontal } from "react-icons/pi";
+import { CiBookmark } from "react-icons/ci";
+import { TbSearch } from "react-icons/tb";
 
 const New = () => {
     const { theme, setTheme: toggleTheme } = useOutletContext();
@@ -36,7 +39,18 @@ const New = () => {
     return (
         <div className={`flex  flex-col items-center pt-38 p-4 mb-12 min-h-screen w-full 
         ${theme === 'dark' ? 'bg-[#1d2b3a]' : 'bg-[#ffffff]'}`}>
+            <nav className='flex items-center gap-3 w-full'>
+                <button className='flex px-2.5 py-2 ml-4 rounded-lg hover:bg-[#2f3f50] cursor-pointer'>
+                    <TbSearch className='text-2xl  text-white' />
+                </button>
+                <button className='flex px-2 py-2 rounded-lg hover:bg-[#2f3f50] cursor-pointer'>
+                    <PiSlidersHorizontal className='text-2xl' />
+                </button>
 
+                <button className='flex px-2.5 py-2 ml-4 rounded-lg hover:bg-[#2f3f50] cursor-pointer'>
+                    <CiBookmark className='text-2xl  text-white' />
+                </button>
+            </nav>
         </div>
     )
 }
