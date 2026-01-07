@@ -40,6 +40,11 @@ const New = () => {
         <div className={`flex  flex-col items-center pt-38 p-4 mb-12 min-h-screen w-full 
         ${theme === 'dark' ? 'bg-[#1d2b3a]' : 'bg-[#ffffff]'}`}>
             <nav className='flex items-center gap-3 w-full'>
+                <div>
+
+                </div>
+
+
                 <button className='flex px-2.5 py-2 ml-4 rounded-lg hover:bg-[#2f3f50] cursor-pointer'>
                     <TbSearch className='text-2xl  text-white' />
                 </button>
