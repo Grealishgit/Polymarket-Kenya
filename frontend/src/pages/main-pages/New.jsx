@@ -1,7 +1,8 @@
 import React from 'react'
+import { useOutletContext } from 'react-router-dom';
 
 const New = () => {
-
+    const { theme, setTheme: toggleTheme } = useOutletContext();
     const subLinks = [
         { id: 1, name: 'All', href: '' },
         { id: 2, name: 'Trump', href: '' },
@@ -33,7 +34,8 @@ const New = () => {
     ]
 
     return (
-        <div>
+        <div className={`flex  flex-col items-center pt-38 p-4 mb-12 min-h-screen w-full 
+        ${theme === 'dark' ? 'bg-[#1d2b3a]' : 'bg-[#ffffff]'}`}>
 
         </div>
     )
